@@ -5,6 +5,7 @@ import Spinner from "../../components/Spinner/Spinner.js"
 export default function Home() {
 
     const [num, setNum] = useState([Home, 'num'], 0)
+
     const [videos, setVideos] = useState([jk.global, 'videos'], undefined)
 
     // Return spinner if video list is not downloaded
@@ -14,6 +15,8 @@ export default function Home() {
             ${Spinner()}
         `)
     }
+
+    console.log(videos)
 
     useEffect([Home, 'init'], () => {
 
