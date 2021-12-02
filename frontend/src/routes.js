@@ -3,7 +3,8 @@ import Home from './views/Home/Home.js'
 import Err from './views/Err/Err.js'
 import Watch from './views/Watch/Watch.js'
 import Login from './views/Login/Login.js'
-import Signup from './views/Signup/Signup.js'
+import Settings from './views/Settings/Settings.js'
+import Collection from './views/Collection/Collection.js'
 
 const routes = [
     {
@@ -25,9 +26,13 @@ const routes = [
         view: Login,
         title: 'Login'
     }, {
-        path: '/signup',
-        view: Signup,
-        title: 'Sign up'
+        path: '/settings',
+        view: Settings,
+        title: 'Settings'
+    }, {
+        path: '/collection',
+        view: Collection,
+        title: 'Collection'
     }
 ]
 

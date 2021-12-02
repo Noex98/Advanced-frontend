@@ -1,4 +1,4 @@
-import {useState} from '/jk'
+import { useState } from '/jk'
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
 import {
@@ -12,6 +12,10 @@ import {
 	deleteDoc,
 	addDoc
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+import {
+	getAuth,
+	onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 
 export default function initFirebase(){
 
@@ -27,10 +31,14 @@ export default function initFirebase(){
     
     // Initialize Firebase
     initializeApp(firebaseConfig);
-    const _db = getFirestore();
+    jk.global.db = getFirestore();
+    jk.global.auth = getAuth();
+
+    // Initialize Firebase UI (non modular)
+    firebase.initializeApp(firebaseConfig);
     
     // Video list state
-    const _videosRef = collection(_db, 'videos')
+    const _videosRef = collection(jk.global.db, 'videos')
     const [videos, setVideos] = useState([jk.global, 'videos'], undefined)
     getDocs(_videosRef)
         .then((snapshot) => {
@@ -43,11 +51,33 @@ export default function initFirebase(){
             setVideos(output)
         })
 
-    const auth = getAuth()
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    ui.start('#firebaseui-auth-container', {
-        signInOptions: [
-          firebase.auth.EmailAuthProvider.PROVIDER_ID
-        ],
-      });
+    //################       Auth         ##############
+    
+    // User state
+    const [user, setUser] = useState([jk.global, 'user'], undefined)
+
+    // Set auth ui in global state 
+    useState([jk.global, 'authui'], new firebaseui.auth.AuthUI(firebase.auth()))
+
+    // Listen for auth state change
+    onAuthStateChanged(jk.global.auth, authData => { 
+        // Logged in
+        if (authData) {
+            // Get extra user data from firestore
+            getDoc(doc(jk.global.db, 'users', authData.uid))
+                .then((firestoreData) => {
+                    // Set user state
+                    setUser({
+                        displayName: authData.displayName,
+                        email: authData.email,
+                        phoneNumber: authData.phoneNumber,
+                        uid: authData.uid,
+                        ... firestoreData.data(),
+                    })
+                })
+        } else {
+            // User is signed out
+            setUser(undefined)
+        }
+    });
 }

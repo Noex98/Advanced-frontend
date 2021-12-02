@@ -44,7 +44,7 @@ export function InitRouter(routes) {
                     navigateTo(path)
                     e.preventDefault()
                 };
-            }   
+            }
         })()
         
         // Scroll to top
@@ -69,5 +69,10 @@ export function InitRouter(routes) {
     onpopstate = () => render()
 
     // First render
-    onload = () => render()
+    onload = () => {
+        // Prevent render triggered on init
+        if (!root.innerHTML === ''){
+            render()
+        }
+    }
 }

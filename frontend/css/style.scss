@@ -6,7 +6,13 @@
 // Views        @import '../src/views/';
 @import '../src/views/Home/Home';
 @import '../src/views/Err/Err';
+@import '../src/views/Login/Login';
+@import '../src/views/Settings/Settings';
+@import '../src/views/Watch/Watch';
+@import '../src/views/Collection/Collection';
 
 
 // Components   @import '../src/components/';
 @import '../src/components/Spinner/Spinner';
+@import '../src/components/Aside/Aside';
+@import '../src/components/Header/Header';

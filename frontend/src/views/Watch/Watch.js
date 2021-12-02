@@ -9,9 +9,14 @@ export default function Watch(props) {
     // Make sure we have a video id
     try {
         video_id = props.search.video_id
-        if (video_id === undefined) Redirect('/')
     } catch {
         Redirect('/')
+        return
+    } finally {
+        if (video_id === undefined) {
+            Redirect('/')
+            return
+        }
     }
     
     return (/*html*/`
