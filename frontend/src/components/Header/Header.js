@@ -17,26 +17,6 @@ export default function Header(){
 
     }, [])
 
-    function returnStatus(){
-        if (user === true){
-            return (/*html*/`
-                <div class="header__profileBtn">
-                    <button onclick="jk.Header.logout()">Logout</button>
-                </div>
-            `)
-        } else {
-            return (/*html*/`
-                <div class="header__sign">
-                    <a href="login" class="jk-link">
-                        login
-                    </a>
-                    <a href="signup" class="jk-link">
-                        signup
-                    </a>
-                </div>
-            `)
-        }
-    }
     window.showDropdown = ()  => {
             document.getElementById("dropdown-header").classList.toggle("active")
     }
@@ -50,12 +30,19 @@ export default function Header(){
         HTMLTemplate +=(/*html*/`   
         <div class="dropdown profile" onclick="showDropdown()">
                
-        <img src="/media/icons/Profile.svg"/>
+        <img id="profile-img" src="/media/icons/Profile.svg"/>
         <h3>${user.displayName}</h3>
    
         <div class="dropdown-content" id="dropdown-header">
-            <button onclick="jk.Header.logout()">Logout</button>
-            ${returnStatus()}
+
+            <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center;">
+                <img src="/media/icons/Logout.svg" class="dropdown-icon"/>
+                <div>Log ud</div>
+            </div>
+            <a class="jk-link" href="/Settings" style="display:flex; flex-direction: collumn; align-items: center;">
+                <img src="/media/icons/settings.svg" class="dropdown-icon"/>
+                <div>Indstillinger</div>
+            </a>
         </div>
 
         </div>

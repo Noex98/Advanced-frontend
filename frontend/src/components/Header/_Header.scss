@@ -6,18 +6,25 @@ header{
     align-items: center;
         .logo{
             width: 10%;
+            min-width: 80px;
         }
         .profile{
             display: flex;
             flex-direction: row;
             align-items: center;
+            margin-right: 40px;
             h3{
                 font-size: 14px;
             }
-            img{
-                width: 65px;
-                margin-right: 10px;
-            }
+                #profile-img{
+                    width: 65px;
+                    margin-right: 10px;
+                    
+                }
+                .dropdown-icon{
+                    margin-right: 15px;
+                }
+                
         }
     .active{
         display: block;
