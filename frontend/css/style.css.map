@@ -5,6 +5,7 @@
         "style.scss",
         "partials/_global.scss",
         "partials/_variables.scss",
+        "partials/_dropdown.scss",
         "partials/_flex-wrapper.scss",
         "partials/_darken.scss",
         "../src/views/Home/_Home.scss",
