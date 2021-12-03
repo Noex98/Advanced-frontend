@@ -45,17 +45,19 @@ console.log(user);
         <header>
             <a href="/" class="jk-link">
                 <div class="header__logo">
-                    <img src="" alt="logo" />
+                    <img src="/media/Logo.png" alt="logo" class="logo"/>
                 </div>
             </a>
 
             <div class="dropdown profile" onclick="showDropdown()">
-                <img src=""/>
-                <h3>${user.displayName}</h3>
-                <div class="dropdown-content" id="dropdown-header">
-                    <button onclick="jk.Header.logout()">Logout</button>
-                    ${returnStatus()}
-                </div>
+               
+                    <img src="/media/icons/Profile.svg"/>
+                    <h3>${user.displayName}</h3>
+               
+                    <div class="dropdown-content" id="dropdown-header">
+                        <button onclick="jk.Header.logout()">Logout</button>
+                        ${returnStatus()}
+                    </div>
             
             </div>
         </header>
