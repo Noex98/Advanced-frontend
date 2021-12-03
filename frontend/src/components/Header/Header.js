@@ -40,6 +40,29 @@ export default function Header(){
     window.showDropdown = ()  => {
             document.getElementById("dropdown-header").classList.toggle("active")
     }
+    function displayName(){
+       let HTMLTemplate = ""
+
+       if (user == undefined){
+           HTMLTemplate +=(/*html*/`
+            <a class="jk-link" href="/login">Log Ind</a>`)
+       } else{
+        HTMLTemplate +=(/*html*/`   
+        <div class="dropdown profile" onclick="showDropdown()">
+               
+        <img src="/media/icons/Profile.svg"/>
+        <h3>${user.displayName}</h3>
+   
+        <div class="dropdown-content" id="dropdown-header">
+            <button onclick="jk.Header.logout()">Logout</button>
+            ${returnStatus()}
+        </div>
+
+        </div>
+        `)
+       }
+       return HTMLTemplate
+    }
 console.log(user);
     return (/*html*/`
         <header>
@@ -48,18 +71,8 @@ console.log(user);
                     <img src="/media/Logo.png" alt="logo" class="logo"/>
                 </div>
             </a>
-
-            <div class="dropdown profile" onclick="showDropdown()">
-               
-                    <img src="/media/icons/Profile.svg"/>
-                    <h3>${user.displayName}</h3>
-               
-                    <div class="dropdown-content" id="dropdown-header">
-                        <button onclick="jk.Header.logout()">Logout</button>
-                        ${returnStatus()}
-                    </div>
-            
-            </div>
+        ${displayName()}
+         
         </header>
     `)
 }
