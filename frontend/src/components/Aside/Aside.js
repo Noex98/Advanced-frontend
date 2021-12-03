@@ -16,8 +16,8 @@ export default function Aside(){
         jk.Aside.addCollection = () => {
             // Darken background
             document.getElementById('aside__darken').classList.add('darken--active')
-
             
+
         }
 
     }, [])
