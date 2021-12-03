@@ -1,4 +1,5 @@
 import { useEffect, useState } from "/jk"
+import addCollection from "../../functions/addCollection.js"
 
 export default function Aside(){
     const [user, setUser] = useState([jk.global, 'user'], undefined)
@@ -14,10 +15,7 @@ export default function Aside(){
 
         // Add collection
         jk.Aside.addCollection = () => {
-            // Darken background
-            document.getElementById('aside__darken').classList.add('darken--active')
-            
-
+            addCollection()
         }
 
     }, [])

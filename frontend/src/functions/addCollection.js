@@ -4,12 +4,12 @@ export default function addCollection(video_id){
 
     let popup = document.createElement('div')
 
-    popup.classList.add('po')
+    popup.classList.add('popup')
 
     popup.innerHTML = (/*html*/`
-        
+        <div class="popup__close"></div>
     `)
 
-    document.getElementById('root').appendChild()
+    document.getElementById('root').appendChild(popup)
 
 }
