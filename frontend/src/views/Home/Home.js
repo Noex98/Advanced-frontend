@@ -23,7 +23,9 @@ export default function Home() {
 
     return (/*html*/`
         ${Header()}
-        ${Aside()}
-        <div>Home</div>
+        <div class="wrap">
+            ${Aside()}
+            <div>Home</div>
+        </div>
     `)
 }

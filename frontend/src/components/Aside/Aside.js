@@ -1,10 +1,10 @@
 import { useEffect, useState } from "/jk"
 
 export default function Aside(){
-    const [loggedin, setLoggedin] = useState([jk.global, 'loggedin'], false)
+    const [user, setUser] = useState([jk.global, 'user'], undefined)
 
     // No aside if not logged in
-    if (loggedin === false){
+    if (user === undefined){
         return ''
     }
 
@@ -22,7 +22,15 @@ export default function Aside(){
     function returnCollections(){
         let output = ''
 
-        // for loop here
+        for (let i = 1; i < user.collections.length; i++){
+            output += (/*html*/`
+                <a class="jk-link" href="/collection?collection_id=${user.collections[i].name.toLowerCase()}">
+                    <div>
+                        ${user.collections[i].name}
+                    </div>
+                </a>
+            `)
+        }
 
         return output
     }
@@ -30,30 +38,28 @@ export default function Aside(){
     return (/*html*/`
         <aside>
 
+            <a class="jk-link" href="/">
+                <img src="" alt="home icon"/>
+                <div>Home</div>
+            </a>
+
+            <a class="jk-link" href="/settings">
+                <img src="" alt="settings icon"/>
+                <div>Indstillinger</div>
+            </a>
+
+            <a class="jk-link" href="/collection?collection_id=favoritter">
+                <img src="" alt="settings icon"/>
+                <div>Faoritter</div>
+            </a>
+
             <div class="aside__collections">
-                <a href="/collection?collection_id=0" class="jk.link">
-                    Favoritter
-                </a>
+                <div>Playlister</div>
                 ${returnCollections()}
-                <button onclick="jk.Aside.addCollection()">Ny samling</button>
+                <button onclick="jk.Aside.addCollection()">Ny playlist</button>
             </div>
 
-            <div class="aside__categories">
-                <ul>
-                    <li>
-                        Category
-                    </li>
-                    <li>
-                        Category
-                    </li>
-                    <li>
-                        Category
-                    </li>
-                    <li>
-                        Category
-                    </li>
-                </ul>
-            </div>
+            
 
         </aside>
     `)
