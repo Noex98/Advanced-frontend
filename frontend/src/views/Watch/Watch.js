@@ -1,5 +1,6 @@
 import { useEffect, useState, Redirect } from "/jk"
 import Header from "../../components/Header/Header.js"
+import Aside from "../../components/Aside/Aside.js"
 
 export default function Watch(props) {
 
@@ -20,9 +21,12 @@ export default function Watch(props) {
     }
     
     return (/*html*/`
-        ${Header()}
-        <div class="view__watch">
-            Watch view
-        </div>
+    ${Header()}
+    <div class="flex-wrapper">
+
+        ${Aside()}
+        <div class="view__watch">Watch</div>
+        
+    </div>
     `)
 }

@@ -38,26 +38,34 @@ export default function Aside(){
     return (/*html*/`
         <aside>
 
-            <a class="jk-link" href="/">
-                <img src="" alt="home icon"/>
+            <a class="jk-link aside__icon" href="/">
+                <img src="/media/icons/Home.svg" alt="home icon"/>
                 <div>Home</div>
             </a>
 
-            <a class="jk-link" href="/settings">
-                <img src="" alt="settings icon"/>
+            <a class="jk-link aside__icon" href="/settings">
+                <img src="/media/icons/Settings.svg" alt="settings icon"/>
                 <div>Indstillinger</div>
             </a>
 
-            <a class="jk-link" href="/collection?collection_id=favoritter">
-                <img src="" alt="settings icon"/>
-                <div>Faoritter</div>
+            <a class="jk-link aside__icon" href="/collection?collection_id=favoritter">
+                <img src="/media/icons/Favorites.svg" alt="settings icon"/>
+                <div>Favoritter</div>
             </a>
 
-            <div class="aside__collections">
-                <div>Playlister</div>
-                ${returnCollections()}
-                <button onclick="jk.Aside.addCollection()">Ny playlist</button>
+            <div>
+
+                <div class="aside__icon">
+                    <img src="/media/icons/Collection.svg" alt="settings icon"/>
+                    <div>Playlister</div>
+                </div>
+                <div class="aside__collections">
+                    <div class="collections__addBtn" onclick="jk.Aside.addCollection()">+ Ny playlist</div>
+                    ${returnCollections()}
+                </div>
             </div>
+            
+            
 
             
 

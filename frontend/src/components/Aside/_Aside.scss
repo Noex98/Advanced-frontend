@@ -1,0 +1,32 @@
+aside {
+    width: 285px;
+    border-right: 1px solid black;
+    font-size:18px;
+    padding:22px;
+
+    &
+
+    >a, >div:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
+    .aside__icon {
+        display:flex;
+        align-items: center;
+        
+        img {
+            width:40px;
+            margin-right:24px;
+        }
+    }
+
+    .aside__collections {
+        margin-left: 90px;
+
+        
+    }
+    .collections__addBtn {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

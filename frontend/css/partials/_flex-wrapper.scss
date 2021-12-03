@@ -1,0 +1,6 @@
+.flex-wrapper {
+    display:flex;
+    >div {
+        flex-grow:1;
+    }
+}

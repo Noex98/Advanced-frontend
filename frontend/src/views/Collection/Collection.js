@@ -1,4 +1,6 @@
 import { Redirect } from '/jk'
+import Header from '../../components/Header/Header.js'
+import Aside from '../../components/Aside/Aside.js'
 
 export default function Collection(props){
 
@@ -19,6 +21,12 @@ export default function Collection(props){
     }
 
     return (/*html*/`
-        Collection view
+    ${Header()}
+    <div class="flex-wrapper">
+
+        ${Aside()}
+        <div class="view__collection">Collection</div>
+        
+    </div>
     `)
 }
