@@ -35,7 +35,7 @@ export default function Header(){
    
         <div class="dropdown-content" id="dropdown-header">
 
-            <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center;">
+            <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center; margin-bottom: 7px">
                 <img src="/media/icons/Logout.svg" class="dropdown-icon"/>
                 <div>Log ud</div>
             </div>
