@@ -3,6 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -75,9 +76,37 @@ a {
   }
 }
 
-aside > a {
+aside {
+  width: 285px;
+  border-right: 1px solid black;
+  font-size: 18px;
+  padding: 22px;
+}
+
+aside > a, aside > div:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+aside .aside__icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside .aside__icon img {
+  width: 40px;
+  margin-right: 24px;
+}
+
+aside .aside__collections {
+  margin-left: 90px;
+}
+
+aside .collections__addBtn {
+  font-weight: bold;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
