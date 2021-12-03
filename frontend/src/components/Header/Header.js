@@ -5,7 +5,7 @@ import {
 
 export default function Header(){
 
-    let [loggedin, setLoggedin] = useState([jk.global, 'loggedin'], false)
+    const [user, setUser] = useState([jk.global, 'user'], undefined)
 
     useEffect([Header, 'init'], () => {
 
@@ -18,7 +18,7 @@ export default function Header(){
     }, [])
 
     function returnStatus(){
-        if (loggedin === true){
+        if (user === true){
             return (/*html*/`
                 <div class="header__profileBtn">
                     <button onclick="jk.Header.logout()">Logout</button>
@@ -37,7 +37,10 @@ export default function Header(){
             `)
         }
     }
-
+    window.showDropdown = ()  => {
+            document.getElementById("dropdown-header").classList.toggle("active")
+    }
+console.log(user);
     return (/*html*/`
         <header>
             <a href="/" class="jk-link">
@@ -45,10 +48,16 @@ export default function Header(){
                     <img src="" alt="logo" />
                 </div>
             </a>
-            <button onclick="jk.Header.logout()">Logout</button>
+
+            <div class="dropdown profile" onclick="showDropdown()">
+                <img src=""/>
+                <h3>${user.displayName}</h3>
+                <div class="dropdown-content" id="dropdown-header">
+                    <button onclick="jk.Header.logout()">Logout</button>
+                    ${returnStatus()}
+                </div>
             
-            ${returnStatus()}
-            
+            </div>
         </header>
     `)
 }
