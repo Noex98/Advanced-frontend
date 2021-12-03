@@ -14,7 +14,10 @@ export default function Aside(){
 
         // Add collection
         jk.Aside.addCollection = () => {
-            alert('Add collection')
+            // Darken background
+            document.getElementById('aside__darken').classList.add('darken--active')
+
+            
         }
 
     }, [])
@@ -36,8 +39,11 @@ export default function Aside(){
     }
 
     return (/*html*/`
+        
+        <div id="aside__darken" class="darken"></div>
+    
         <aside>
-
+            
             <a class="jk-link aside__icon" href="/">
                 <img src="/media/icons/Home.svg" alt="home icon"/>
                 <div>Home</div>

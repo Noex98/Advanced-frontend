@@ -41,6 +41,25 @@ a {
           flex-grow: 1;
 }
 
+.darken {
+  background: black;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.darken--active {
+  opacity: 0.5;
+  pointer-events: all;
+}
+
 #loader {
   position: fixed;
   left: 0px;
