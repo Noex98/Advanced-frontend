@@ -49,37 +49,49 @@ a {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background-color: #939393;
-  padding: 24px;
+  padding: 60px 35px;
   min-width: 200px;
   min-height: 100px;
   border-radius: 15px;
   text-align: center;
-  font-size: 36px;
+  font-size: 28px;
+  z-index: 2;
+}
+
+.popup > *:not(:last-child) {
+  margin-bottom: 24px;
 }
 
 .popup .popup__close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   width: 25px;
   height: 25px;
   background-size: cover;
   background-image: url("/media/icons/Close.svg");
+  cursor: pointer;
 }
 
 .popup button {
-  padding: 17px 0 17px 0;
+  padding: 15px 0 15px 0;
   border-radius: 15px;
   min-width: 220px;
-  font-size: 24px;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  background-color: #616161;
+  color: white;
+  cursor: pointer;
 }
 
 .popup input {
-  font-size: 24px;
+  width: 100%;
+  font-size: 20px;
   border: 0;
   outline: 0;
   border-radius: 15px;
-  padding: 20px 40px;
+  padding: 15px 30px;
   background-color: #EDEDED;
 }
 

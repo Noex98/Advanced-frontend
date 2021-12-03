@@ -1,5 +1,11 @@
-import { useEffect, useState } from "/jk"
-import addCollection from "../../functions/addCollection.js"
+import { useEffect, useState, reRender } from "/jk"
+
+import {
+	doc,
+	updateDoc,
+    arrayUnion
+} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+
 
 export default function Aside(){
     const [user, setUser] = useState([jk.global, 'user'], undefined)
@@ -13,9 +19,50 @@ export default function Aside(){
 
         jk.Aside = {}
 
+        jk.Aside.closePopup = () => {
+            document.getElementById('aside__darken').classList.remove('darken--active')
+            document.querySelector('.popup').remove()
+        }
+
+        jk.Aside.saveCollection = () => {
+            const input = document.getElementById('asidePlaylistInput').value
+            
+            updateDoc(doc(jk.global.db, 'users', user.uid), {
+                collections: arrayUnion({
+                    name: input,
+                    videos: []
+                })
+            })
+                .then(
+                    setUser(prev => {
+                        let newState = prev
+                        newState.collections.push({
+                            name: input,
+                            videos: []
+                        })
+                        return newState
+                    })
+                )
+        }
+
         // Add collection
         jk.Aside.addCollection = () => {
-            addCollection()
+            
+            // Darken background
+            document.getElementById('aside__darken').classList.add('darken--active')
+
+            let popup = document.createElement('div')
+            popup.classList.add('popup')
+
+            popup.innerHTML = (/*html*/`
+                <div onclick="jk.Aside.closePopup()" class="popup__close"></div>
+                <div>Opret playliste</div>
+                <input id="asidePlaylistInput" type="text" placeholder="Titel" />
+                <button onclick="jk.Aside.saveCollection()" >Gem</button>
+            `)
+
+            document.getElementById('root').appendChild(popup)
+
         }
 
     }, [])
@@ -64,8 +111,8 @@ export default function Aside(){
                     <div>Playlister</div>
                 </div>
                 <div class="aside__collections">
-                    <div class="collections__addBtn" onclick="jk.Aside.addCollection()">+ Ny playlist</div>
                     ${returnCollections()}
+                    <div class="collections__addBtn" onclick="jk.Aside.addCollection()">+ Ny playlist</div>
                 </div>
             </div>
             

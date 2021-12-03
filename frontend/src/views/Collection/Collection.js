@@ -25,7 +25,7 @@ export default function Collection(props){
     <div class="flex-wrapper">
 
         ${Aside()}
-        <div class="view__collection">Collection</div>
+        <div class="view__collection">Collection name: ${collection_id}</div>
         
     </div>
     `)
