@@ -19,6 +19,8 @@ export default function Aside(){
 
     }, [])
 
+    console.log(user)
+
     function returnCollections(){
         let output = ''
 
@@ -39,25 +41,27 @@ export default function Aside(){
         <aside>
 
             <a class="jk-link" href="/">
-                <img src="" alt="home icon"/>
+                <img src="/media/icons/Home.svg" alt="home icon"/>
                 <div>Home</div>
             </a>
 
             <a class="jk-link" href="/settings">
-                <img src="" alt="settings icon"/>
+                <img src="/media/icons/Settings.svg" alt="settings icon"/>
                 <div>Indstillinger</div>
             </a>
 
             <a class="jk-link" href="/collection?collection_id=favoritter">
-                <img src="" alt="settings icon"/>
-                <div>Faoritter</div>
+                <img src="/media/icons/Favorites.svg" alt="settings icon"/>
+                <div>Favoritter</div>
             </a>
 
-            <div class="aside__collections">
+            <a>
+                <img src="/media/icons/Collection.svg" alt="settings icon"/>
                 <div>Playlister</div>
-                ${returnCollections()}
-                <button onclick="jk.Aside.addCollection()">Ny playlist</button>
-            </div>
+            </a>
+
+            ${returnCollections()}
+            <button onclick="jk.Aside.addCollection()">Ny playlist</button>
 
             
 

@@ -23,9 +23,11 @@ export default function Home() {
 
     return (/*html*/`
         ${Header()}
-        <div class="wrap">
+        <div class="flex-wrapper">
+
             ${Aside()}
-            <div>Home</div>
+            <div class="view__home">Home</div>
+            
         </div>
     `)
 }
