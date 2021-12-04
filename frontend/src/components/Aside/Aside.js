@@ -26,20 +26,19 @@ export default function Aside(){
 
         jk.Aside.saveCollection = () => {
             const input = document.getElementById('asidePlaylistInput').value
+
+            let newCollection = {
+                name: input,
+                videos: []
+            }
             
             updateDoc(doc(jk.global.db, 'users', user.uid), {
-                collections: arrayUnion({
-                    name: input,
-                    videos: []
-                })
+                collections: arrayUnion(newCollection)
             })
                 .then(
                     setUser(prev => {
                         let newState = prev
-                        newState.collections.push({
-                            name: input,
-                            videos: []
-                        })
+                        newState.collections.push(newCollection)
                         return newState
                     })
                 )

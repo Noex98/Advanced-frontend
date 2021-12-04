@@ -37,10 +37,10 @@ export default function initFirebase(){
     // Initialize Firebase UI (non modular)
     firebase.initializeApp(firebaseConfig);
     
-    // Video list state
-    const _videosRef = collection(jk.global.db, 'videos')
+    // Videos state
+    const videosRef = collection(jk.global.db, 'videos')
     const [videos, setVideos] = useState([jk.global, 'videos'], undefined)
-    getDocs(_videosRef)
+    getDocs(videosRef)
         .then((snapshot) => {
             let output = []
             snapshot.forEach( doc => {
@@ -51,13 +51,28 @@ export default function initFirebase(){
             setVideos(output)
         })
 
+    // Filters state
+    const filtersRef = collection(jk.global.db, 'filters')
+    const [filters, setFilters] = useState([jk.global, 'filters'], undefined)
+    getDocs(filtersRef)
+        .then((snapshot) => {
+            let output = []
+            snapshot.forEach( doc => {
+                let item = doc.data()
+                item.id = doc.id
+                output.push(item)
+            })
+            setFilters(output)
+        })
+
     //################       Auth         ##############
     
     // User state
     const [user, setUser] = useState([jk.global, 'user'], undefined)
 
-    // Set auth ui in global state 
-    useState([jk.global, 'authui'], new firebaseui.auth.AuthUI(firebase.auth()))
+    // Enable authUi for global use 
+    let authUi = new firebaseui.auth.AuthUI(firebase.auth())
+    jk.global.authUi = authUi
 
     // Listen for auth state change
     onAuthStateChanged(jk.global.auth, authData => { 

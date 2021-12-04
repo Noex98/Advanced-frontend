@@ -4,30 +4,22 @@ import Header from "../../components/Header/Header.js"
 import {
 	doc,
     setDoc
-
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 export default function Login(props) {
 
-    const [ui, setUi] = useState([jk.global, 'authui'], undefined)
-
     const [user, setUser] = useState([jk.global, 'user'], undefined)
 
-    console.log(user)
-    
-    if (user !== undefined){
-        alert('Already logged in')
-        Redirect('/')
-    }
-
+    // Insert the authentication UI into the DOM, after render
     useEffect([Login, 'authUI'], () => {
-        ui.start('#firebaseui-auth-container', {
+        jk.global.authUi.start('#firebaseui-auth-container', {
             signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 firebase.auth.FacebookAuthProvider.PROVIDER_ID
             ],
             callbacks:{
+                // Sign in succes
                 signInSuccessWithAuthResult: (authResult, redirectUrl) => {
                     // New user created
                     if (authResult.additionalUserInfo.isNewUser === true){
@@ -43,9 +35,10 @@ export default function Login(props) {
                                     videos: []
                                 }
                             ],
-                            
                         })
                     }
+                    // Redirect to home
+                    Redirect('/')
                 }
             },
             signInSuccessUrl: '/'

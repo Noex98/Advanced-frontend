@@ -15,42 +15,48 @@ export default function Header(){
             signOut(jk.global.auth);
         }
 
+        jk.Header.showDropdown = ()  => {
+            document.getElementById("dropdown-header").classList.toggle("dropdown-content--active")
+        }
+
     }, [])
 
-    window.showDropdown = ()  => {
-            document.getElementById("dropdown-header").classList.toggle("active")
-    }
-    function displayName(){
-       let HTMLTemplate = ""
+    
 
-       if (user == undefined){
-           HTMLTemplate +=(/*html*/`
+    function returnName(){
+       let output = ""
+
+       if (user === undefined){
+           output = (/*html*/`
             <a class="jk-link" href="/login">Log Ind</a>`)
-       } else{
-        HTMLTemplate +=(/*html*/`   
-        <div class="dropdown profile" onclick="showDropdown()">
-               
-        <img id="profile-img" src="/media/icons/Profile.svg"/>
-        <h3>${user.displayName}</h3>
-   
-        <div class="dropdown-content" id="dropdown-header">
 
-            <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center; margin-bottom: 7px">
-                <img src="/media/icons/Logout.svg" class="dropdown-icon"/>
-                <div>Log ud</div>
-            </div>
-            <a class="jk-link" href="/Settings" style="display:flex; flex-direction: collumn; align-items: center;">
-                <img src="/media/icons/settings.svg" class="dropdown-icon"/>
-                <div>Indstillinger</div>
-            </a>
-        </div>
+       } else {
+            output = (/*html*/`   
+                <div class="dropdown profile" onclick="jk.Header.showDropdown()">
+                        
+                    <img id="profile-img" src="/media/icons/Profile.svg"/>
+                    <h3>${user.displayName}</h3>
 
-        </div>
-        `)
-       }
-       return HTMLTemplate
+                    <div class="dropdown-content" id="dropdown-header">
+
+                        <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center; margin-bottom: 7px">
+                            <img src="/media/icons/Logout.svg" class="dropdown-icon"/>
+                            <div>Log ud</div>
+                        </div>
+                        <a class="jk-link" href="/settings" style="display:flex; flex-direction: collumn; align-items: center;">
+                            <img src="/media/icons/settings.svg" class="dropdown-icon"/>
+                            <div>Indstillinger</div>
+                        </a>
+                    </div>
+
+                </div>
+            `)
+        }
+
+       return output
     }
-console.log(user);
+
+
     return (/*html*/`
         <header>
             <a href="/" class="jk-link">
@@ -58,7 +64,7 @@ console.log(user);
                     <img src="/media/Logo.png" alt="logo" class="logo"/>
                 </div>
             </a>
-        ${displayName()}
+        ${returnName()}
          
         </header>
     `)

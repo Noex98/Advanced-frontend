@@ -6,6 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 a {
   cursor: pointer;
   color: inherit;
@@ -17,7 +21,7 @@ a {
   display: inline-block;
 }
 
-.dropdown-content {
+.dropdown .dropdown-content {
   display: none;
   position: absolute;
   bottom: 0;
@@ -30,6 +34,10 @@ a {
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
+}
+
+.dropdown .dropdown-content--active {
+  display: block;
 }
 
 .flex-wrapper {
@@ -220,8 +228,7 @@ header {
 }
 
 header .logo {
-  width: 10%;
-  min-width: 80px;
+  width: clamp(80px, 10%, 120px);
 }
 
 header .profile {
@@ -248,9 +255,5 @@ header .profile #profile-img {
 
 header .profile .dropdown-icon {
   margin-right: 15px;
-}
-
-header .active {
-  display: block;
 }
 /*# sourceMappingURL=style.css.map */
