@@ -9,6 +9,10 @@ header{
         width: clamp(80px, 10%, 120px);
     }
 
+    .dropdown {
+        display: inline-block;
+    }
+
     .profile {
         display: flex;
         flex-direction: row;
