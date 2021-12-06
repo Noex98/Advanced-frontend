@@ -5,7 +5,7 @@ import Spinner from "../../components/Spinner/Spinner.js"
 
 export default function Home() {
 
-    // Global states
+    // Global state
     const [videos, setVideos] = useState([jk.global, 'videos'], undefined)
     const [filters, setFilters] = useState([jk.global, 'filters'], undefined)
 
@@ -26,7 +26,7 @@ export default function Home() {
 
         jk.Home = {}
 
-        jk.Home.filter = (element) => {
+        jk.Home.filterItems = (element) => {
             let key = element.dataset.key
             let value = element.value
 

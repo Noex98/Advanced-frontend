@@ -18,7 +18,6 @@ a {
 
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown .dropdown-content {
@@ -229,6 +228,10 @@ header {
 
 header .logo {
   width: clamp(80px, 10%, 120px);
+}
+
+header .dropdown {
+  display: inline-block;
 }
 
 header .profile {
