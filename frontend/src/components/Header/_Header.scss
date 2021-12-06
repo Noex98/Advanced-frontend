@@ -4,6 +4,7 @@ header{
     justify-content: space-between;
     padding: 20px;
     align-items: center;
+    border-bottom: 1px solid gray;
         .logo{
             width: 10%;
             min-width: 80px;
@@ -17,7 +18,7 @@ header{
                 font-size: 14px;
             }
                 #profile-img{
-                    width: 65px;
+                    width: 50px;
                     margin-right: 10px;
                     
                 }
