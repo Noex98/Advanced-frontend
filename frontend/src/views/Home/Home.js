@@ -167,7 +167,7 @@ export default function Home() {
 
             for (vc; vc < 3; vc++){
                 if (videoShouldRender(videos[vc])){
-                    videoHTML += (/*html*/`
+                    videoHTML += (/*html*/` 
                         <div class="video">
                             <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
                             <div class="video__text">
@@ -203,7 +203,7 @@ export default function Home() {
             <div class="view__home">
                 <div class="home__filters">
                     ${returnFilterMenu()}
-                    <input type="text" value="${searchOptions.search}" oninput="jk.Home.search(this.value)"/>
+                    <div id="search__input"><input type="text" value="${searchOptions.search}" oninput="jk.Home.search(this.value)" placeholder="Søg"/></div>
                 </div>
                 <div class="home__videos">
                     ${returnVideos()}

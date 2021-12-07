@@ -1,12 +1,54 @@
 .view__home {
-
     padding: 0 50px;
     margin:0 auto;
+    h2{
+        color: #455863;
+        font-weight: 900;
+        font-size: 28px;
+    }
+    .home__filters{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 35px;
+        align-items: flex-end;
+        .filters__item{
+            display: flex;
+            flex-direction: column;
+            label{
+            color:  #455863;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 21px;
+            }
+            select{    
+                background-color: #93B2C3;
+                border-radius: 15px;
+                border: none;
+                color: white;
+                height: 40px;
+                width: 7.5vw;
+                padding: 0 15px;}
+        }
+        input{
+            display: inline-block;
+            position: relative;
+            bottom: 0;
+            -webkit-appearance: none;
+            background-color: rgba(147, 178, 195, 0.3);;
+            border-radius: 15px;
+            border: none;
+            height: 40px;
+            width: 33vw;
+            text-indent: 15px;
+        }
+    }
 
     .videos__new {
         display:flex;
         justify-content: space-between;
-
+        margin-bottom:35px;
         .video {
             width: 40%;
             max-height: 330px;
@@ -65,4 +107,5 @@
         }
 
     }
+   
 }

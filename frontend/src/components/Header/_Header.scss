@@ -4,7 +4,7 @@ header{
     justify-content: space-between;
     padding: 20px;
     align-items: center;
-
+    border-bottom: solid 1px gray;
     .logo {
         width: clamp(80px, 10%, 120px);
     }
