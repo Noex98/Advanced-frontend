@@ -61,7 +61,7 @@ export default function Header(){
         <header>
             <a href="/" class="jk-link">
                 <div class="header__logo">
-                    <img src="/media/Logo.png" alt="logo" class="logo"/>
+                    <img src="/media/Logo.svg" alt="logo" class="logo"/>
                 </div>
             </a>
         ${returnName()}
