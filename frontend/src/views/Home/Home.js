@@ -118,36 +118,40 @@ export default function Home() {
             let newVideos = ''
             for (vc; vc < 2; vc++){
                 newVideos += (/*html*/`
-                    <div class="video video--new">
-                        <img src="${videos[vc].thumbnail}" alt="" />
-                        <div class="video__text">
-                            <div>
-                                <div class="text__title">
-                                    ${videos[vc].title}
-                                </div>
-                                <div class="text__teacher">
-                                    ${videos[vc].tags.teachers[0]}
+                    <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                        <div class="video video--new">
+                            <img src="${videos[vc].thumbnail}" alt="" />
+                            <div class="video__text">
+                                <div>
+                                    <div class="text__title">
+                                        ${videos[vc].title}
+                                    </div>
+                                    <div class="text__teacher">
+                                        ${videos[vc].tags.teachers[0]}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `)
             }
 
             let allVideos = ''
             for (vc; vc < 3; vc++){
                 allVideos += (/*html*/`
-                    <div class="video">
-                        <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
-                        <div class="video__text">
-                            <div class="text__title">
-                                ${videos[vc].title}
+                    <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                        <div class="video">
+                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                            <div class="video__text">
+                                <div class="text__title">
+                                    ${videos[vc].title}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `)
             }
-
+            console.log(videos)
             return (/*html*/`
                 <h2>Netop tilføjet</h2>
                 <div class="videos__new">
@@ -159,7 +163,7 @@ export default function Home() {
                     ${allVideos}
                 </div>
             `)
-
+            
         // Search active
         } else {
 
@@ -168,14 +172,16 @@ export default function Home() {
             for (vc; vc < 3; vc++){
                 if (videoShouldRender(videos[vc])){
                     videoHTML += (/*html*/` 
-                        <div class="video">
-                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
-                            <div class="video__text">
-                                <div class="text__title">
-                                    ${videos[vc].title}
+                        <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                            <div class="video">
+                                <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                                <div class="video__text">
+                                    <div class="text__title">
+                                        ${videos[vc].title}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     `)
                 }
             }
