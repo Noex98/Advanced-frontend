@@ -3,8 +3,7 @@ aside {
     border-right: 1px solid black;
     font-size:18px;
     padding:22px;
-
-    &
+    flex-shrink: 0;
 
     >a, >div:not(:last-child) {
         margin-bottom: 40px;

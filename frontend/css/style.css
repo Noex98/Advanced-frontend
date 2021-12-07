@@ -123,6 +123,85 @@ a {
   pointer-events: all;
 }
 
+.view__home {
+  padding: 0 50px;
+  margin: 0 auto;
+}
+
+.view__home .videos__new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.view__home .videos__new .video {
+  width: 40%;
+  max-height: 330px;
+}
+
+.view__home .videos__new .text__title {
+  font-size: 36px;
+}
+
+.view__home .videos__new .text__teacher {
+  font-size: 14px;
+}
+
+.view__home .videos__all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.view__home .videos__all .video {
+  margin-bottom: 90px;
+  width: clamp(300px, 25%, 430px);
+  max-height: 280px;
+}
+
+.view__home .videos__all .text__title {
+  font-size: 18px;
+}
+
+.view__home .video {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  font-weight: bold;
+}
+
+.view__home .video img {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+.view__home .video .video__text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #7491A1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 24px;
+}
+
 #loader {
   position: fixed;
   left: 0px;
@@ -180,6 +259,8 @@ aside {
   border-right: 1px solid black;
   font-size: 18px;
   padding: 22px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 aside > a, aside > div:not(:last-child) {
