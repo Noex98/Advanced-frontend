@@ -84,11 +84,11 @@ export default function Aside(){
 
     return (/*html*/`
         
-        <div id="aside__darken" class="darken"></div>
+        <div id="aside__darken" class="darken" onclick="jk.Aside.closePopup()"></div>
     
         <aside>
             
-            <a class="jk-link aside__icon" href="/">
+            <a class="jk-link aside__icon" href="/" >
                 <img src="/media/icons/Home.svg" alt="home icon"/>
                 <div>Home</div>
             </a>
@@ -98,7 +98,7 @@ export default function Aside(){
                 <div>Indstillinger</div>
             </a>
 
-            <a class="jk-link aside__icon" href="/collection?collection_id=favoritter">
+            <a class="jk-link aside__icon" href="/collection?collection_id=Favoritter">
                 <img src="/media/icons/Favorites.svg" alt="settings icon"/>
                 <div>Favoritter</div>
             </a>

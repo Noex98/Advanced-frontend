@@ -7,6 +7,7 @@
     z-index: 9999999999;
     overflow: hidden;
     text-align: center;
+    pointer-events: none;
 
     .spinner {
         border: 5px solid #48b18a50;
