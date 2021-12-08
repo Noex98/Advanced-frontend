@@ -151,7 +151,7 @@ export default function Home() {
                     </a>
                 `)
             }
-            console.log(videos)
+
             return (/*html*/`
                 <h2>Netop tilføjet</h2>
                 <div class="videos__new">
