@@ -11,7 +11,7 @@ export function useEffect(storage, func, dependencies){
     if (storage[1] in storage[0].effects === false){
         if (dependencies) storage[0].effects[storage[1]] = dependencies
         effects.push(func)
-    // Effect has been used before check if for dependency change
+    // Effect has been used before check for dependency change
     } else if (dependencies){
         if (!arrayEquals(storage[0].effects[storage[1]], dependencies)){
             storage[0].effects[storage[1]] = dependencies

@@ -291,6 +291,7 @@ a {
   z-index: 9999999999;
   overflow: hidden;
   text-align: center;
+  pointer-events: none;
 }
 
 #loader .spinner {
@@ -394,6 +395,10 @@ header .logo {
 
 header .dropdown {
   display: inline-block;
+}
+
+header .dropdown .dropdown-content > * {
+  cursor: pointer;
 }
 
 header .profile {

@@ -37,7 +37,7 @@ class state {
 
 export function useState(storage, initState){
 
-    // If no states has been used, create a state object
+    // If no states has been used, create a object for holding states
     if ('state' in storage[0] === false) storage[0].state = {}
 
     // If state has no been set, set state with initial values
@@ -46,5 +46,10 @@ export function useState(storage, initState){
     }
 
     // Return [state, setState]
-    return [storage[0].state[storage[1]].getState(), storage[0].state[storage[1]].setState]
+    return [
+        // state
+        storage[0].state[storage[1]].getState(), 
+        // setState
+        storage[0].state[storage[1]].setState
+    ]
 }
