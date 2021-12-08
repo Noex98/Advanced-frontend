@@ -11,6 +11,10 @@ header{
 
     .dropdown {
         display: inline-block;
+
+        .dropdown-content > * {
+            cursor: pointer;
+        }
     }
 
     .profile {
