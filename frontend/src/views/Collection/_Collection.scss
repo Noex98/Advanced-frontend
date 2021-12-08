@@ -1,0 +1,36 @@
+.view__collection {
+    h2 {
+        font-size:48px;
+        margin-left: 50px;
+    }
+    .collection__videos{
+
+        .video {
+            display:flex;
+
+            .video__imgCont {
+                border-radius: 15px;;
+                width:290px;
+                height:180px;
+                position:relative;
+                overflow: hidden;
+                margin-right:22px;
+
+                img {
+                    height:100%;
+                    width:100%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    position:absolute;
+                    top:50%; left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            
+        }
+
+        .video:nth-child(odd){
+            background: #7491a11c;
+        }
+    }
+}

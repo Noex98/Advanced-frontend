@@ -46,14 +46,14 @@ export default function Collection(props){
         // Playlist is empty
         if (collection.videos.length === 0){
             return (/*html*/`
-                <div>No videos in this playlist</div>
+                <h2>No videos in this playlist</h2>
             `)
         }
 
         // Playlist is not empty
         for (const id of collection.videos) {   
-            
             let video = videos.find(video => video.id === id)
+            console.log(video)
 
             // Video not found
             if (video === undefined){
@@ -66,7 +66,13 @@ export default function Collection(props){
             } else {
                 output += (/*html*/`
                     <div class="video">
-                        <div>${video.title}</div>
+                        <div class="video__imgCont">
+                            <img src="${video.thumbnail}" alt="" />
+                        </div>
+                        <div>
+                            <div>${video.title}</div>
+                            <div>${video.tags.teachers[0]}</div>
+                        </div>
                     </div>
                 `)
             }
