@@ -30,25 +30,30 @@ export default function Watch(props) {
     
     function returnVideoLayout(){
         let output = (/*html*/`
-        <div className="watch__container">
-            <div className="container__video">
-                <video poster="${_vid[0].thumbnail}" controls>
-                    <source src="${_vid[0].url}" type="video/mp4"/>
+        <div class="watch__container">
+            <div class="container__video">
+                <video id="video" poster="${_vid[0].thumbnail}" controls>
+                    <source="${_vid[0].url}" type="video/mp4"/>
                 </video>
             </div>
-            <div className="container__description">
-                <h1>${_vid[0].title}</h1>
-                <span>${_vid[0].description}</span>
-                <div class="description__tags">
-                    <div>${_vid[0].duration}</div>
-                    <div>${_vid[0].level}</div>
-                    <div>${_vid[0].categories}</div>
+            <div class="container__description">
+                <div class="description__main">
+                    <h1>${_vid[0].title}</h1>
+                    <span>${_vid[0].description}</span>
+                    <div class="description__tags">
+                        <div>${_vid[0].duration}</div>
+                        <div>${_vid[0].level}</div>
+                        <div>${_vid[0].categories}</div>
+                    </div>
                 </div>
-                <div className="playlist__buttons">
-                <a href="">favorit</a>
-                <a href="">playlist</a>
+                <div class="playlist__buttons">
+                    <a class="jk-link aside__icon" href="/collection?collection_id=Favoritter">
+                        <img src="/media/icons/Addtofavorites.svg" alt="addfavorite icon"/>
+                    </a>
+                    <img src="/media/icons/Addtoplaylist.svg" alt="addplaylist icon"/>
                 </div>
             </div>
+  
         </div>
         `)
         return output

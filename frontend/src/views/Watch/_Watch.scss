@@ -1,0 +1,46 @@
+.view__watch{
+    margin: 30px;
+    .watch__container{
+        display: flex;
+        flex-direction: row;
+        
+        .container__video{
+            margin-right: 30px;
+            video{width: 100%;
+           }
+        }
+        .container__description{
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            border-radius: 40px;
+            background-color: #7491A1;
+            color: white;
+            padding: 30px;
+            justify-content: space-between;
+            
+            .description__main{
+               h1{margin-bottom: 15px;}
+            }
+
+        
+           .description__tags{
+               display: flex;
+               flex-direction: row;
+               flex-wrap: wrap;
+               margin-top: 15px;
+               div{
+                background-color: #93B2C3;
+                border-radius: 5px;
+                font-weight: bold;
+                padding: 5px;
+               margin: 5px;
+               }
+           }
+           .playlist__buttons{
+               display: flex;
+               justify-content: flex-end;
+           }
+        }
+    }
+}
