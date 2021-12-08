@@ -40,6 +40,29 @@ export default function Collection(props){
     // get an array of the videos in the playlist
     let collection = user.collections.find(collection => collection.name === collection_id)
 
+    function returnTags(video){
+        let output = ''
+        console.log(video)
+
+        if (video.tags.level != ''){
+            output +=(/*html*/`
+                <div>${video.tags.level}</div>
+            `)
+        }
+        if (video.tags.duration != ''){
+            output +=(/*html*/`
+                <div>${video.tags.duration}</div>
+            `)
+        }
+        if (video.tags.categories[0] != ''){
+            output +=(/*html*/`
+                <div>${video.tags.categories[0]}</div>
+            `)
+        }
+
+        return output
+    }
+
     function returnVideos(){
         let output = ''
 
@@ -69,9 +92,12 @@ export default function Collection(props){
                         <div class="video__imgCont">
                             <img src="${video.thumbnail}" alt="" />
                         </div>
-                        <div>
-                            <div>${video.title}</div>
-                            <div>${video.tags.teachers[0]}</div>
+                        <div class="video__text">
+                            <div class="title">${video.title}</div>
+                            <div class="teacher">Underviser: ${video.tags.teachers[0]}</div>
+                            <div class="video__tags">
+                                ${returnTags(video)}
+                            </div>
                         </div>
                     </div>
                 `)
@@ -86,7 +112,7 @@ export default function Collection(props){
         <div class="flex-wrapper">
             ${Aside()}
             <div class="view__collection">
-                <div>Collection name: ${collection_id}</div>
+                <h2>${collection_id}</h2>
             
                 <div class="collection__videos">
                     ${returnVideos()}

@@ -7,6 +7,7 @@
 
         .video {
             display:flex;
+            padding:24px;
 
             .video__imgCont {
                 border-radius: 15px;;
@@ -26,7 +27,30 @@
                     transform: translate(-50%, -50%);
                 }
             }
+
+            .video__text {
+                display:flex;
+                flex-direction: column;
+
+                .title {
+                    font-size:36px;
+                    font-weight: bold;
+                }
+            }
             
+            .video__tags {
+                display:flex;
+
+                div {
+                    margin-right: 16px;
+                    border-radius: 10px;
+                    font-size:18px;
+                    font-size:bold;
+                    padding:12px 24px;
+                    color:white;
+                    background-color: #93B2C3;
+                }
+            }
         }
 
         .video:nth-child(odd){
