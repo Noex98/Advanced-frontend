@@ -25,10 +25,14 @@ export default function Watch(props) {
 
     // Object of clicked video db values
     let _vid = videos.filter(x => x.id === video_id)
-    console.log(_vid[0].title);
+
+    // Filter for videos with the same category 
+    let _tags = _vid[0].tags.categories;
+    let _similarVideos = videos.filter(x => x.tags.categories == "" + _tags);
+    console.log(_similarVideos);
  
-    
-    function returnVideoLayout(){
+    // Return video to html
+    function returnVideo(){
         let output = (/*html*/`
         <div class="watch__container">
             <div class="container__video">
@@ -43,7 +47,7 @@ export default function Watch(props) {
                     <div class="description__tags">
                         <div>${_vid[0].duration}</div>
                         <div>${_vid[0].level}</div>
-                        <div>${_vid[0].categories}</div>
+                        <div>${_vid[0].tags.categories}</div>
                     </div>
                 </div>
                 <div class="playlist__buttons">
@@ -59,6 +63,25 @@ export default function Watch(props) {
         return output
     }
 
+    //Return related videos to HTML
+    function returnRelated(){
+        let output = ""
+        for (let video of _similarVideos) {
+            output += (/*html*/`
+            <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
+            <div class="video">
+                <img src="${video.thumbnail}" alt="video thumbnail" />
+                <div class="video__text">
+                    <div class="text__title">
+                        ${video.title}
+                    </div>
+                </div>
+            </div>
+        </a>
+           `)
+       }
+       return output
+    }
 
     return (/*html*/`
     ${Header()}
@@ -66,7 +89,11 @@ export default function Watch(props) {
 
         ${Aside()}
         <div class="view__watch">
-        ${returnVideoLayout()}
+        ${returnVideo()}
+        Similar
+        <div class="videosRelated">
+        ${returnRelated()}
+        </div>
         </div>
         
     </div>
