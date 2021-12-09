@@ -6,9 +6,7 @@ import {
     setDoc
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
-export default function Login(props) {
-
-    const [user, setUser] = useState([jk.global, 'user'], undefined)
+export default function Login() {
 
     // Insert the authentication UI into the DOM, after render
     useEffect([Login, 'authUI'], () => {

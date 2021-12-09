@@ -11,15 +11,15 @@ export default function Collection(props){
  
      // Return spinner if assets not loaded
      if (videos === undefined || user === undefined){
-         return (/*html*/`
-             ${Header()}
-             <div class="flex-wrapper">
-                ${Aside()}
-                <main></main>
-             </div>
-             ${Spinner()}
-         `)
-     }
+        return (/*html*/`
+            ${Header()}
+            <div class="flex-wrapper">
+            ${Aside()}
+            <main></main>
+            </div>
+            ${Spinner()}
+        `)
+    }
 
     // id for video
     let collection_id

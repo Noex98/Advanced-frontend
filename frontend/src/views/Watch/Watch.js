@@ -37,7 +37,7 @@ export default function Watch(props) {
         <div class="watch__container">
             <div class="container__video">
                 <video id="video" poster="${_vid[0].thumbnail}" controls>
-                    <source="${_vid[0].url}" type="video/mp4"/>
+                    <source src="${_vid[0].url}" type="video/mp4"/>
                 </video>
             </div>
             <div class="container__description">
