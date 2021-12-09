@@ -62,6 +62,7 @@ export default function Header(){
             <a href="/" class="jk-link">
                 <div class="header__logo">
                     <img src="/media/Logo.svg" alt="logo" class="logo"/>
+                    <div>Art of Yoga</div>
                 </div>
             </a>
         ${returnName()}

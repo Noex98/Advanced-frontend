@@ -15,6 +15,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  color: #455863;
 }
 
 a {
@@ -134,7 +135,7 @@ a {
 }
 
 .view__home {
-  padding: 0 50px;
+  padding: 22px 50px;
   margin: 0 auto;
 }
 
@@ -419,9 +420,14 @@ a {
   padding: 16px 24px;
 }
 
+.view__collection {
+  padding: 22px 0;
+}
+
 .view__collection h2 {
-  font-size: 48px;
+  font-size: 36px;
   margin-left: 50px;
+  font-weight: 900;
 }
 
 .view__collection .collection__videos > a:nth-child(odd) {
@@ -615,12 +621,15 @@ a {
 
 aside {
   width: 285px;
-  border-right: 1px solid black;
+  border-right: 1px solid #C4C4C4;
   font-size: 18px;
   padding: 22px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   min-height: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 24px;
 }
 
 aside > a, aside > div:not(:last-child) {
@@ -665,11 +674,27 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: solid 1px gray;
+  border-bottom: solid 1px #C4C4C4;
+  margin-bottom: 24px;
 }
 
-header .logo {
-  width: clamp(80px, 10%, 120px);
+header .header__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header__logo img {
+  width: 60px;
+  margin-right: 16px;
+}
+
+header .header__logo div {
+  font-weight: 600;
+  font-size: 36px;
 }
 
 header .dropdown {
@@ -694,11 +719,11 @@ header .profile {
 }
 
 header .profile h3 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 header .profile #profile-img {
-  width: 65px;
+  width: 60px;
   margin-right: 10px;
 }
 
