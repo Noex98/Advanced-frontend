@@ -5,9 +5,14 @@
     }
     .collection__videos{
 
+        > a:nth-child(odd){
+            background: #7491a11c;
+        }
+
         .video {
             display:flex;
             padding:24px;
+            background: inherit;
 
             .video__imgCont {
                 border-radius: 15px;;
@@ -40,21 +45,85 @@
             
             .video__tags {
                 display:flex;
+                margin-top: auto;
+                white-space: nowrap;
 
                 div {
                     margin-right: 16px;
                     border-radius: 10px;
-                    font-size:18px;
+                    font-size:16px;
                     font-size:bold;
                     padding:12px 24px;
                     color:white;
                     background-color: #93B2C3;
                 }
             }
+
+            .video__dots {
+                margin-left: auto;
+                margin-right: -16px;
+                align-self: center;
+                padding: 0 16px;
+                position: relative;
+                
+                &:hover {
+                    .dot {
+                        transform: scale(1.15);
+                    }
+                }
+
+                .dot {
+                    transition:150ms;
+                    border-radius: 50%;
+                    background-color: #455863;
+                    width:10px;
+                    height:10px;
+                }
+
+                .dot:not(:last-child){
+                    margin-bottom: 7px;
+                }
+
+                .dots__options {
+                    opacity: 0;
+                    pointer-events: none;
+                    transition:150ms;
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    transform:translateX(-100%);
+                    background: #93B2C3;
+                    color:white;
+                    border:1px solid rgba(255, 255, 255, 0.2);
+
+                    >div {
+                        display:flex;
+                        padding:11px;
+                        white-space: nowrap;
+                        transition: inherit;
+
+                        img {
+                            margin-right:11px;
+                        }
+
+                        &:hover {
+                            background: #9cbbcc;
+                        }
+                    }
+                    >div:not(:last-child){
+                        border-bottom: 1px solid white;
+                    }
+                }
+
+                .dots__options--active {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+
         }
 
-        .video:nth-child(odd){
-            background: #7491a11c;
-        }
+
+        
     }
 }

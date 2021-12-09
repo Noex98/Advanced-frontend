@@ -1,4 +1,4 @@
-import { Redirect, useState } from '/jk'
+import { Redirect, useState, useEffect } from '/jk'
 import Header from '../../components/Header/Header.js'
 import Aside from '../../components/Aside/Aside.js'
 import Spinner from '../../components/Spinner/Spinner.js'
@@ -36,6 +36,27 @@ export default function Collection(props){
             return
         }
     }
+
+    useEffect([Collection, 'init'], () => {
+        jk.Collection = {}
+
+        jk.Collection.showOptions = (event, element) => {
+            event.stopPropagation(); 
+            event.preventDefault() 
+
+            let target = element.querySelector('.dots__options')
+            let opentabs = document.querySelectorAll('.dots__options--active')
+
+            for (const tab of opentabs){
+                if (tab !== target){    
+                    tab.classList.remove('dots__options--active')
+                }
+            }
+
+            target.classList.toggle('dots__options--active')
+        }
+
+    }, [])
 
     // get an array of the videos in the playlist
     let collection = user.collections.find(collection => collection.name === collection_id)
@@ -88,18 +109,40 @@ export default function Collection(props){
             // Video found
             } else {
                 output += (/*html*/`
-                    <div class="video">
-                        <div class="video__imgCont">
-                            <img src="${video.thumbnail}" alt="" />
-                        </div>
-                        <div class="video__text">
-                            <div class="title">${video.title}</div>
-                            <div class="teacher">Underviser: ${video.tags.teachers[0]}</div>
-                            <div class="video__tags">
-                                ${returnTags(video)}
+                    <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
+                        <div class="video">
+                            <div class="video__imgCont">
+                                <img src="${video.thumbnail}" />
+                            </div>
+                            <div class="video__text">
+                                <div class="title">${video.title}</div>
+                                <div class="teacher">Underviser: ${video.tags.teachers[0]}</div>
+                                <div class="video__tags">
+                                    ${returnTags(video)}
+                                </div>
+                            </div>
+                            <div class="video__dots" onclick="jk.Collection.showOptions(event, this)">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+
+                                <div class="dots__options">
+                                    <div>
+                                        <img src="/media/icons/trashcan.svg" alt="ic" />
+                                        <div>Fjern fra ${collection_id}</div>
+                                    </div>
+                                    <div>
+                                        <img src="/media/icons/up-arrow.svg" alt="" />
+                                        <div>Flyt op</div>
+                                    </div>
+                                    <div>
+                                        <img src="/media/icons/down-arrow.svg" alt="" />
+                                        <div>Flyt ned</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `)
             }
         }
