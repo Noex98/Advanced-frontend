@@ -118,17 +118,15 @@ export default function Home() {
             let newVideos = ''
             for (vc; vc < 2; vc++){
                 newVideos += (/*html*/`
-                    <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                        <div class="video video--new">
-                            <img src="${videos[vc].thumbnail}" alt="" />
-                            <div class="video__text">
-                                <div>
-                                    <div class="text__title">
-                                        ${videos[vc].title}
-                                    </div>
-                                    <div class="text__teacher">
-                                        ${videos[vc].tags.teachers[0]}
-                                    </div>
+                    <a class="video video--new" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                        <img src="${videos[vc].thumbnail}" alt="" />
+                        <div class="video__text">
+                            <div>
+                                <div class="text__title">
+                                    ${videos[vc].title}
+                                </div>
+                                <div class="text__teacher">
+                                    ${videos[vc].tags.teachers[0]}
                                 </div>
                             </div>
                         </div>
@@ -137,15 +135,13 @@ export default function Home() {
             }
 
             let allVideos = ''
-            for (vc; vc < 3; vc++){
+            for (vc; vc < 8; vc++){
                 allVideos += (/*html*/`
-                    <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                        <div class="video">
-                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
-                            <div class="video__text">
-                                <div class="text__title">
-                                    ${videos[vc].title}
-                                </div>
+                    <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                        <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                        <div class="video__text">
+                            <div class="text__title">
+                                ${videos[vc].title}
                             </div>
                         </div>
                     </a>
@@ -172,13 +168,11 @@ export default function Home() {
             for (vc; vc < 3; vc++){
                 if (videoShouldRender(videos[vc])){
                     videoHTML += (/*html*/` 
-                        <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                            <div class="video">
-                                <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
-                                <div class="video__text">
-                                    <div class="text__title">
-                                        ${videos[vc].title}
-                                    </div>
+                        <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                            <div class="video__text">
+                                <div class="text__title">
+                                    ${videos[vc].title}
                                 </div>
                             </div>
                         </a>

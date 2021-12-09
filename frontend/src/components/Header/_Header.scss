@@ -6,6 +6,8 @@ header{
     align-items: center;
     border-bottom: solid 1px #C4C4C4;
     margin-bottom: 24px;
+    z-index:2;
+    position:relative;
 
     .header__logo {
         display:flex;
@@ -29,6 +31,7 @@ header{
     }
 
     .profile {
+        cursor: pointer;
         display: flex;
         flex-direction: row;
         align-items: center;

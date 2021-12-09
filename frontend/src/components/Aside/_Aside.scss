@@ -4,9 +4,10 @@ aside {
     font-size:18px;
     padding:22px;
     flex-shrink: 0;
-    min-height: 100%;
+    height: calc(100vh - 44px);
     position:sticky;
     top:24px;
+    
 
     >a, >div:not(:last-child) {
         margin-bottom: 40px;
