@@ -3,6 +3,13 @@ import Header from '../../components/Header/Header.js'
 import Aside from '../../components/Aside/Aside.js'
 import Spinner from '../../components/Spinner/Spinner.js'
 
+import {
+	doc,
+    getDoc,
+    setDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+
 export default function Collection(props){
 
      // Global state
@@ -37,6 +44,9 @@ export default function Collection(props){
         }
     }
 
+    // get an array of the videos in the playlist
+    let collection = user.collections.find(collection => collection.name === collection_id)
+
     useEffect([Collection, 'init'], () => {
         jk.Collection = {}
 
@@ -56,14 +66,54 @@ export default function Collection(props){
             target.classList.toggle('dots__options--active')
         }
 
+        jk.Collection.delete = video => {
+
+            let updatedCollections = user.collections.map(x => {
+                // Modify current collection
+                if (x === collection){
+                    let target = x.videos.indexOf(video)
+                    if (target !== -1) {
+                        x.videos.splice(target, 1);
+                    }
+                }
+                return x
+            })
+
+            sendNewData(updatedCollections)
+        }
+        /*
+        jk.Collection.move = (index, direction) => {
+
+            let updatedCollections = user.collections.map(x => {
+                // Modify current collection
+                if (x === collection){
+                        [ x[index], x[index + direction] ] = [ x[index + direction], [x[index] ]
+                }
+                return x
+            })
+
+            sendNewData(updatedCollections)
+        }
+        */
+
     }, [])
 
-    // get an array of the videos in the playlist
-    let collection = user.collections.find(collection => collection.name === collection_id)
+    function sendNewData(newData){
+        updateDoc(doc(jk.global.db, 'users', user.uid), {
+            collections: newData
+        })
+            .then(() => {
+                setUser(prev => {
+                    let newState = prev;
+                    newState.collections = newData
+                    return newState;
+                })
+            })
+    }
+
 
     function returnTags(video){
         let output = ''
-        console.log(video)
 
         if (video.tags.level != ''){
             output +=(/*html*/`
@@ -97,7 +147,6 @@ export default function Collection(props){
         // Playlist is not empty
         for (const id of collection.videos) {   
             let video = videos.find(video => video.id === id)
-            console.log(video)
 
             // Video not found
             if (video === undefined){
@@ -127,7 +176,7 @@ export default function Collection(props){
                                 <div class="dot"></div>
 
                                 <div class="dots__options">
-                                    <div>
+                                    <div onclick="jk.Collection.delete('${video.id}')">
                                         <img src="/media/icons/trashcan.svg" alt="ic" />
                                         <div>Fjern fra ${collection_id}</div>
                                     </div>
