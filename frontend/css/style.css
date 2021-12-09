@@ -8,6 +8,13 @@
 
 #root {
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 a {
@@ -43,6 +50,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .flex-wrapper > div {
@@ -414,11 +424,16 @@ a {
   margin-left: 50px;
 }
 
+.view__collection .collection__videos > a:nth-child(odd) {
+  background: #7491a11c;
+}
+
 .view__collection .collection__videos .video {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 24px;
+  background: inherit;
 }
 
 .view__collection .collection__videos .video .video__imgCont {
@@ -461,20 +476,88 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: auto;
+  white-space: nowrap;
 }
 
 .view__collection .collection__videos .video .video__tags div {
   margin-right: 16px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 16px;
   font-size: bold;
   padding: 12px 24px;
   color: white;
   background-color: #93B2C3;
 }
 
-.view__collection .collection__videos .video:nth-child(odd) {
-  background: #7491a11c;
+.view__collection .collection__videos .video .video__dots {
+  margin-left: auto;
+  margin-right: -16px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.view__collection .collection__videos .video .video__dots:hover .dot {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.view__collection .collection__videos .video .video__dots .dot {
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  border-radius: 50%;
+  background-color: #455863;
+  width: 10px;
+  height: 10px;
+}
+
+.view__collection .collection__videos .video .video__dots .dot:not(:last-child) {
+  margin-bottom: 7px;
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background: #93B2C3;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 11px;
+  white-space: nowrap;
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options > div img {
+  margin-right: 11px;
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options > div:hover {
+  background: #9cbbcc;
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options > div:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+
+.view__collection .collection__videos .video .video__dots .dots__options--active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 #loader {
@@ -537,6 +620,7 @@ aside {
   padding: 22px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  min-height: 100%;
 }
 
 aside > a, aside > div:not(:last-child) {

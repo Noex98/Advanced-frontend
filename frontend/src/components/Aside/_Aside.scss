@@ -4,6 +4,7 @@ aside {
     font-size:18px;
     padding:22px;
     flex-shrink: 0;
+    min-height: 100%;
 
     >a, >div:not(:last-child) {
         margin-bottom: 40px;
