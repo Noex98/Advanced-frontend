@@ -574,8 +574,8 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  -webkit-transform: scale(0.5) translateX(-100%);
+          transform: scale(0.5) translateX(-100%);
   background: #93B2C3;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -604,6 +604,8 @@ a {
 }
 
 .view__collection .collection__videos .video .video__dots .dots__options--active {
+  -webkit-transform: scale(1) translateX(-100%);
+          transform: scale(1) translateX(-100%);
   opacity: 1;
   pointer-events: all;
 }
