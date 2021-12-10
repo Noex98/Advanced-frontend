@@ -39,14 +39,16 @@ export default function Header(){
 
                     <div class="dropdown-content" id="dropdown-header">
 
-                        <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center; margin-bottom: 7px">
-                            <img src="/media/icons/Logout.svg" class="dropdown-icon"/>
-                            <div>Log ud</div>
-                        </div>
                         <a class="jk-link" href="/settings" style="display:flex; flex-direction: collumn; align-items: center;">
-                            <img src="/media/icons/settings.svg" class="dropdown-icon"/>
+                            <img src="/media/icons/settings-white.svg" class="dropdown-icon"/>
                             <div>Indstillinger</div>
                         </a>
+
+                        <div onclick="jk.Header.logout()" style="display:flex; flex-direction: collumn; align-items: center; margin-bottom: 7px">
+                            <img src="/media/icons/Logout-white.svg" class="dropdown-icon"/>
+                            <div>Log ud</div>
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -62,6 +64,7 @@ export default function Header(){
             <a href="/" class="jk-link">
                 <div class="header__logo">
                     <img src="/media/Logo.svg" alt="logo" class="logo"/>
+                    <div>Art of Yoga</div>
                 </div>
             </a>
         ${returnName()}

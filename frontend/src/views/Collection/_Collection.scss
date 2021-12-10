@@ -1,7 +1,11 @@
 .view__collection {
+
+    padding:22px 0;
+
     h2 {
-        font-size:48px;
+        font-size:36px;
         margin-left: 50px;
+        font-weight: 900;
     }
     .collection__videos{
 
@@ -91,7 +95,7 @@
                     position:absolute;
                     top:0;
                     left:0;
-                    transform:translateX(-100%);
+                    transform:scale(0.5) translateX(-100%);
                     background: #93B2C3;
                     color:white;
                     border:1px solid rgba(255, 255, 255, 0.2);
@@ -116,6 +120,7 @@
                 }
 
                 .dots__options--active {
+                    transform:scale(1) translateX(-100%);
                     opacity: 1;
                     pointer-events: all;
                 }

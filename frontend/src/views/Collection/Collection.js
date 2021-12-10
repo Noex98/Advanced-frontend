@@ -68,6 +68,7 @@ export default function Collection(props){
 
         jk.Collection.delete = video => {
 
+            // Update collections
             let updatedCollections = user.collections.map(x => {
                 // Modify current collection
                 if (x === collection){
@@ -81,20 +82,32 @@ export default function Collection(props){
 
             sendNewData(updatedCollections)
         }
-        /*
+        
         jk.Collection.move = (index, direction) => {
 
+            // Stop 1st item from moving up, and last from moving down
+            if ( (index === 0 && direction === -1) || (index === user.collections.length - 1 && direction === 1) ){
+                return
+            }
+
+            // Modify data
+            let videos = collection.videos
+
+            let b = videos[index];
+            videos[index] = videos[index + direction];
+            videos[index + direction] = b;
+
+            // Insert new data into collections
             let updatedCollections = user.collections.map(x => {
-                // Modify current collection
                 if (x === collection){
-                        [ x[index], x[index + direction] ] = [ x[index + direction], [x[index] ]
+                    x.videos = videos
                 }
                 return x
             })
 
             sendNewData(updatedCollections)
         }
-        */
+        
 
     }, [])
 
@@ -145,7 +158,7 @@ export default function Collection(props){
         }
 
         // Playlist is not empty
-        for (const id of collection.videos) {   
+        for (const [i, id] of collection.videos.entries()) {   
             let video = videos.find(video => video.id === id)
 
             // Video not found
@@ -180,12 +193,12 @@ export default function Collection(props){
                                         <img src="/media/icons/trashcan.svg" alt="ic" />
                                         <div>Fjern fra ${collection_id}</div>
                                     </div>
-                                    <div>
-                                        <img src="/media/icons/up-arrow.svg" alt="" />
+                                    <div onclick="jk.Collection.move(${i}, -1)">
+                                        <img  src="/media/icons/up-arrow.svg" alt="icon" />
                                         <div>Flyt op</div>
                                     </div>
-                                    <div>
-                                        <img src="/media/icons/down-arrow.svg" alt="" />
+                                    <div onclick="jk.Collection.move(${i}, 1)">
+                                        <img src="/media/icons/down-arrow.svg" alt="icon" />
                                         <div>Flyt ned</div>
                                     </div>
                                 </div>

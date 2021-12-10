@@ -1,10 +1,13 @@
 aside {
     width: 285px;
-    border-right: 1px solid black;
+    border-right: 1px solid #C4C4C4;
     font-size:18px;
     padding:22px;
     flex-shrink: 0;
-    min-height: 100%;
+    height: calc(100vh - 44px);
+    position:sticky;
+    top:24px;
+    
 
     >a, >div:not(:last-child) {
         margin-bottom: 40px;
@@ -22,9 +25,8 @@ aside {
 
     .aside__collections {
         margin-left: 90px;
-
-        
     }
+
     .collections__addBtn {
         font-weight: bold;
         cursor: pointer;
