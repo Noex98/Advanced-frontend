@@ -135,7 +135,7 @@ export default function Home() {
             }
 
             let allVideos = ''
-            for (vc; vc < 8; vc++){
+            for (vc; vc < 9; vc++){
                 allVideos += (/*html*/`
                     <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
                             <img src="${videos[vc].thumbnail}" alt="video thumbnail" />

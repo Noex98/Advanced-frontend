@@ -358,6 +358,139 @@ a {
   font-size: 18px;
 }
 
+<<<<<<< HEAD
+=======
+.view__home .video {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  font-weight: bold;
+}
+
+.view__home .video img {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+}
+
+.view__home .video .video__text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #7491A1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.view__settings .settings__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 30px;
+}
+
+.view__settings .settings__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.view__settings .settings__main .main__container {
+  width: 100%;
+  margin: 0px 30px;
+}
+
+.view__settings .settings__main .main__container h3 {
+  margin: 20px;
+}
+
+.view__settings .settings__main #container__background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #455863;
+  border-radius: 15px;
+  height: 100%;
+  padding: 30px;
+}
+
+.view__settings .settings__main #container__background h3 {
+  margin: 0;
+}
+
+.view__settings .settings__main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.view__settings .settings__main form input {
+  background: rgba(147, 178, 195, 0.3);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 15px;
+  margin: 15px 0px;
+}
+
+.view__settings .settings__main form #form__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.view__settings .settings__main .box__lower {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+>>>>>>> 34f3a549b37a95b6d965de23285b994c42bccb03
 .view__watch {
   margin: 30px;
 }
@@ -373,11 +506,16 @@ a {
 }
 
 .view__watch .watch__container .container__video {
+  width: 100%;
   margin-right: 30px;
 }
 
 .view__watch .watch__container .container__video video {
   width: 100%;
+  max-width: 1200;
+  width: 100%;
+  max-height: 700px;
+  height: 100%;
 }
 
 .view__watch .watch__container .container__description {

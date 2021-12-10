@@ -28,9 +28,44 @@ export default function Watch(props) {
 
     // Filter for videos with the same category 
     let _tags = _vid[0].tags.categories;
+
+  
+
+    function returnRelated(){
+        
+        console.log(_similarVideos);    
+        let output = ""
+        for (let video of _similarVideos) {
+            output += (/*html*/`
+            <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
+            <div class="video">
+                <img src="${video.thumbnail}" alt="video thumbnail" />
+                <div class="video__text">
+                    <div class="text__title">
+                        ${video.title}
+                    </div>
+                </div>
+            </div>
+        </a>
+        `)
+    }
+        return output
+    }
+
+
     let _similarVideos = videos.filter(x => x.tags.categories == "" + _tags);
-    console.log(_similarVideos);
- 
+    //Return tags to html 
+    function returnTags(){
+        let output = ""
+        for (let tag of _tags) {
+            output += (/*html*/`
+            <div>${tag}</div>
+            `)
+            
+        }
+        return output
+    }
+
     // Return video to html
     function returnVideo(){
         let output = (/*html*/`
@@ -45,9 +80,9 @@ export default function Watch(props) {
                     <h1>${_vid[0].title}</h1>
                     <span>${_vid[0].description}</span>
                     <div class="description__tags">
-                        <div>${_vid[0].duration}</div>
-                        <div>${_vid[0].level}</div>
-                        <div>${_vid[0].tags.categories}</div>
+                        <div>${_vid[0].tags.duration}</div>
+                        <div>${_vid[0].tags.level}</div>
+                        ${returnTags()}
                     </div>
                 </div>
                 <div class="playlist__buttons">
@@ -61,26 +96,6 @@ export default function Watch(props) {
         </div>
         `)
         return output
-    }
-
-    //Return related videos to HTML
-    function returnRelated(){
-        let output = ""
-        for (let video of _similarVideos) {
-            output += (/*html*/`
-            <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
-            <div class="video">
-                <img src="${video.thumbnail}" alt="video thumbnail" />
-                <div class="video__text">
-                    <div class="text__title">
-                        ${video.title}
-                    </div>
-                </div>
-            </div>
-        </a>
-           `)
-       }
-       return output
     }
 
     return (/*html*/`
