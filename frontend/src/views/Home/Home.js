@@ -137,7 +137,7 @@ export default function Home() {
             }
 
             let allVideos = ''
-            for (vc; vc < 3; vc++){
+            for (vc; vc < 9; vc++){
                 allVideos += (/*html*/`
                     <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
                         <div class="video">
