@@ -73,6 +73,7 @@ export default function initFirebase(){
     // Enable authUi for global use 
     let authUi = new firebaseui.auth.AuthUI(firebase.auth())
     jk.global.authUi = authUi
+    
 
     // Listen for auth state change
     onAuthStateChanged(jk.global.auth, authData => { 
@@ -100,3 +101,4 @@ export default function initFirebase(){
         }
     });
 }
+

@@ -29,13 +29,7 @@ export default function Watch(props) {
     // Filter for videos with the same category 
     let _tags = _vid[0].tags.categories;
 
-    for (const video of videos) {
-        let haystack = video.categories
-        const found = (haystack, _tags) =>
-        {return _tags.some(v => haystack.includes(v))}
-        
-         console.log(found);
-    }
+  
 
     function returnRelated(){
         
