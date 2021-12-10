@@ -119,7 +119,7 @@ export default function Home() {
             for (vc; vc < 2; vc++){
                 newVideos += (/*html*/`
                     <a class="video video--new" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                        <img src="${videos[vc].thumbnail}" alt="" />
+                            <img src="${videos[vc].thumbnail}" alt="" />
                         <div class="video__text">
                             <div>
                                 <div class="text__title">
@@ -138,7 +138,7 @@ export default function Home() {
             for (vc; vc < 8; vc++){
                 allVideos += (/*html*/`
                     <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                        <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
                         <div class="video__text">
                             <div class="text__title">
                                 ${videos[vc].title}
@@ -169,7 +169,7 @@ export default function Home() {
                 if (videoShouldRender(videos[vc])){
                     videoHTML += (/*html*/` 
                         <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                            <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                                <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
                             <div class="video__text">
                                 <div class="text__title">
                                     ${videos[vc].title}
@@ -186,7 +186,7 @@ export default function Home() {
                 `)
             } else {
                 return (/*html*/`
-                    <h2>some search query</h2>
+                    <h2>Resultater</h2>
                     <div class="videos__all">
                         ${videoHTML}
                     </div>

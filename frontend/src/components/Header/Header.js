@@ -31,7 +31,7 @@ export default function Header(){
             <a class="jk-link" href="/login">Log Ind</a>`)
 
        } else {
-            output = (/*html*/`   
+            output = (/*html*/`
                 <div class="dropdown profile" onclick="jk.Header.showDropdown()">
                         
                     <img id="profile-img" src="/media/icons/Profile.svg"/>
