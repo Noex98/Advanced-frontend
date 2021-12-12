@@ -618,6 +618,16 @@ a {
   font-weight: bold;
 }
 
+.view__watch .videosRelated .videos__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .view__watch .videosRelated h1 {
   color: white;
   margin-bottom: 20px;

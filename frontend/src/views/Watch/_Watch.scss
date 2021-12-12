@@ -66,6 +66,10 @@
         background-color: #93B2C3;
         border-radius: 40px;
         font-weight: bold;
+        .videos__container{
+            display: flex;
+            flex-direction: row;
+        }
        h1{
            color: white;
            margin-bottom: 20px;

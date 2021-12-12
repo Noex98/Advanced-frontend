@@ -35,29 +35,45 @@ export default function Watch(props) {
 
     }, [])
 
-    function returnRelated(){
-        
-        console.log(_similarVideos);    
+    function appendSimilarVideos() {
+        let _similarVideos = []
         let output = ""
-        for (let video of _similarVideos) {
+        // Loop through videos and categories of those videos
+        for (const video of videos) {
+            let tags = video.tags.categories
+            for (const tag of tags) {
+                // Check if tags are in common
+                const found = _tags.includes(tag);
+                // If tags are in common push to array
+                if(found == true){
+                   _similarVideos.push(video)
+                }
+            }
+            
+        }
+        // Remove duplicates
+        let uniq = [...new Set(_similarVideos)];
+        // Remove the opened video
+        let filteredUniq = uniq.filter(x => x.id !== video_id)
+        console.log(filteredUniq);
+        // Loop through unique videos and append them to HTML
+        for (const video of filteredUniq) {
             output += (/*html*/`
-                <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
-                    <div class="video">
-                        <img src="${video.thumbnail}" alt="video thumbnail" />
-                        <div class="video__text">
-                            <div class="text__title">
-                                ${video.title}
-                            </div>
+            <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
+                <div class="video">
+                    <img src="${video.thumbnail}" alt="video thumbnail" />
+                    <div class="video__text">
+                        <div class="text__title">
+                            ${video.title}
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
             `)
         }
         return output
     }
-
-
-    let _similarVideos = videos.filter(x => x.tags.categories == "" + _tags);
+    appendSimilarVideos()
     //Return tags to html 
     function returnTags(){
         let output = ""
@@ -111,7 +127,7 @@ export default function Watch(props) {
                 <div class="videosRelated">
                 <h1>Relateret videoer</h1>
                 <div class="videos__container">
-                    ${returnRelated()}
+                    ${appendSimilarVideos()}
                     </div>
                     </div>
                 </div>
