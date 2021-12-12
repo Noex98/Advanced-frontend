@@ -379,7 +379,7 @@ a {
 }
 
 .view__home .videos__all .video {
-  margin-bottom: 90px;
+  margin-bottom: 60px;
   margin-left: .5%;
   margin-right: .5%;
   width: clamp(400px, 28%, 550px);
@@ -390,7 +390,7 @@ a {
 }
 
 .view__home .endMessage {
-  margin-top: -70px;
+  margin-top: -50px;
   width: 100%;
   text-align: center;
 }
@@ -646,6 +646,12 @@ a {
   display: flex;
   padding: 24px;
   background: inherit;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
 }
 
 .view__collection .collection__videos .video .video__imgCont {
@@ -677,6 +683,9 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .view__collection .collection__videos .video .video__text .title {
@@ -703,13 +712,15 @@ a {
 }
 
 .view__collection .collection__videos .video .video__dots {
-  margin-left: auto;
-  margin-right: -16px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   padding: 0 16px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .view__collection .collection__videos .video .video__dots:hover .dot {

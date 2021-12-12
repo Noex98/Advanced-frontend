@@ -17,6 +17,9 @@
             display:flex;
             padding:24px;
             background: inherit;
+            flex-wrap: wrap;
+            justify-content: center;
+            position:relative;
 
             .video__imgCont {
                 border-radius: 15px;;
@@ -40,6 +43,7 @@
             .video__text {
                 display:flex;
                 flex-direction: column;
+                flex:1;
 
                 .title {
                     font-size:36px;
@@ -64,11 +68,12 @@
             }
 
             .video__dots {
-                margin-left: auto;
-                margin-right: -16px;
                 align-self: center;
                 padding: 0 16px;
-                position: relative;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
                 
                 &:hover {
                     .dot {

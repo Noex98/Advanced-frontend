@@ -67,9 +67,7 @@ export default function Home() {
     }, [])
 
     useEffect([Home, 'scrollObserver'], () => {
-
         addEventListener('scroll', loadMore)
-
         return () => {
             removeEventListener('scroll', loadMore)
         }
