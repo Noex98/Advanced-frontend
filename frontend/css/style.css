@@ -670,6 +670,15 @@ a {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .view__watch .watch__container .container__description {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    color: #455863;
+    background-color: white;
+  }
 }
 
 .view__collection {

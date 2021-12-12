@@ -112,6 +112,13 @@
     @media only screen and (max-width: 1000px) {
         .watch__container{
             flex-direction: column;
+            .container__description{
+                width: 100%;
+                flex-direction: row;
+                color: #455863;
+                background-color: white;
+            }   
+        
         }
         
     }
