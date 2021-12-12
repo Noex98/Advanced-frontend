@@ -1,5 +1,10 @@
 .view__watch{
     margin: 30px;
+    h1{ font-size: 1.5vw;}
+    span{
+        font-size: 1vw;
+    }
+    div{font-size: 1vw}
     .watch__container{
         display: flex;
         flex-direction: row;
@@ -7,8 +12,9 @@
         .container__video{
             width: 100%;
             margin-right: 30px;
+
             video{width: 100%;
-                max-width: 1200;
+                max-width: 1200px;
                 width:100%;
                 max-height:700px;
                 height:100%;
@@ -17,7 +23,7 @@
         .container__description{
             display: flex;
             flex-direction: column;
-            width: 25%;
+            width: 35%;
             border-radius: 40px;
             background-color: #7491A1;
             color: white;
@@ -43,18 +49,29 @@
                }
            }
            .playlist__buttons{
+               img{width: 3vw;
+                   margin: 0px 5px;}
                display: flex;
                justify-content: flex-end;
+               align-items: center;
            }
         }
     }
     .videosRelated {
+        margin-top: 30px;
+        padding: 30px;
         display:flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
+        background-color: #93B2C3;
+        border-radius: 40px;
+        font-weight: bold;
+       h1{
+           color: white;
+           margin-bottom: 20px;
+       }
     
         .video {
-            margin-bottom: 90px;
             width: clamp(300px, 25%, 430px);
             max-height: 280px;
         }
@@ -91,5 +108,11 @@
             padding: 16px 24px;
         }
 
+    }
+    @media only screen and (max-width: 1000px) {
+        .watch__container{
+            flex-direction: column;
+        }
+        
     }
 }
