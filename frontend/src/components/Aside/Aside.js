@@ -107,7 +107,7 @@ export default function Aside(){
 
                 <div class="aside__icon">
                     <img src="/media/icons/Collection.svg" alt="settings icon"/>
-                    <div>Playlister</div>
+                    <div class="icon__playlists">Playlister</div>
                 </div>
                 <div class="aside__collections">
                     ${returnCollections()}

@@ -297,10 +297,41 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 16px 24px;
+  padding-bottom: 0;
+}
+
+.view__home .video .video__text > div {
+  margin-bottom: 16px;
+  margin-right: 12px;
+}
+
+.view__home .video .text__tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.view__home .video .text__tags > div {
+  padding: 7px 14px;
+  border-radius: 3px;
+  background-color: #93B2C3;
+  max-height: 80px;
+}
+
+.view__home .video .text__tags > div:first-child {
+  margin-right: 10px;
 }
 
 .view__home .video:hover img {
@@ -356,6 +387,12 @@ a {
 
 .view__home .videos__all .text__title {
   font-size: 18px;
+}
+
+.view__home .endMessage {
+  margin-top: -70px;
+  width: 100%;
+  text-align: center;
 }
 
 .view__settings .settings__header {
@@ -737,6 +774,10 @@ a {
   pointer-events: all;
 }
 
+.view__collection .collection__videos .video:hover .title {
+  text-decoration: underline;
+}
+
 #loader {
   position: fixed;
   left: 0px;
@@ -819,6 +860,10 @@ aside .aside__icon {
 aside .aside__icon img {
   width: 40px;
   margin-right: 24px;
+}
+
+aside .aside__icon .icon__playlists {
+  cursor: default;
 }
 
 aside .aside__collections {

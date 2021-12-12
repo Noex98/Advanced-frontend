@@ -48,7 +48,7 @@ export function InitRouter(routes) {
         })()
         
         // Scroll to top
-        if (options && options.scroll !== false){
+        if (!options || options.scroll !== false){
             scrollTo(0, 0)
         }
 

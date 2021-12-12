@@ -126,9 +126,15 @@
                 }
             }
 
+            &:hover {
+                .title {
+                    text-decoration: underline;
+                }
+            }
+
         }
 
-
+        
         
     }
 }

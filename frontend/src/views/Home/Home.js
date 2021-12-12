@@ -25,6 +25,7 @@ export default function Home() {
     if (videos === undefined || filters === undefined){
         return (/*html*/`
             ${Header()}
+            ${Aside()}
             ${Spinner()}
         `)
     }
@@ -36,6 +37,8 @@ export default function Home() {
         jk.Home.filterItems = (element) => {
             let key = element.dataset.key
             let value = element.value
+            // Reset vc counters
+            vcInit()
 
             SetSearchOptions(prev => {
                 let newState = prev
@@ -50,6 +53,9 @@ export default function Home() {
         }
 
         jk.Home.search = (input) => {
+            // Reset vc counters
+            vcInit()
+
             SetSearchOptions(prev => {
                 let newState = prev
                 prev.search = input
@@ -59,6 +65,79 @@ export default function Home() {
         }
 
     }, [])
+
+    useEffect([Home, 'scrollObserver'], () => {
+
+        addEventListener('scroll', loadMore)
+
+        return () => {
+            removeEventListener('scroll', loadMore)
+        }
+    })
+
+    let vc          // vc: video counter
+    let vc_prev     // vc previous: previous vc value, as vc counts up
+    let vc_load     // vc load: how many videos showed on render
+    let vc_incr     // vc increment: how much more is showed on scroll
+
+    function vcInit(){
+        vc = 0;     
+        vc_prev = 0 
+        vc_load = 5 
+        vc_incr = 6 
+    }
+    vcInit()
+
+    function loadMore(){
+        
+        let scrollHeight = document.body.scrollHeight;
+        let totalHeight = window.scrollY + window.innerHeight;
+        let buffer = 300 // px
+
+        let endReachedMsg = (/*html*/`
+            <h2 class="endMessage">Ingen yderligere resultater</h2>
+        `)
+
+        
+    
+        if(totalHeight + buffer >= scrollHeight){
+
+            if (document.querySelector('.videos__all .endMessage')) return
+
+            let output = ''
+
+            for (vc; vc < vc_load + vc_incr; vc++){
+                
+                try {
+                    if (videoShouldRender(videos[vc])){
+                        output += (/*html*/` 
+                            <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                                    <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                                <div class="video__text">
+                                    <div class="text__title">
+                                        ${videos[vc].title}
+                                    </div>
+                                    <div class="text__tags">
+                                        <div>${videos[vc].tags.duration}</div>
+                                        <div>${videos[vc].tags.level}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        `)
+                    } else { vc_load++ }
+                } catch { break }
+            }
+
+            // update vc prev
+            vc_prev = vc
+
+            if (output === ''){
+                output = endReachedMsg
+            }
+
+            document.querySelector('.videos__all').innerHTML += output
+        }
+    }
 
     // return html for filter menu
     function returnFilterMenu(){
@@ -108,10 +187,6 @@ export default function Home() {
     // returns html for videos
     function returnVideos(){
 
-        // vc: video counter
-        // Counting how how many videos is rendered in the dom
-        let vc = 0;
-
         // Empty search state
         if (Object.keys(searchOptions.filter).length === 0 && searchOptions.search === "" ){
 
@@ -129,13 +204,17 @@ export default function Home() {
                                     ${videos[vc].tags.teachers[0]}
                                 </div>
                             </div>
+                            <div class="text__tags">
+                                <div>${videos[vc].tags.duration}</div>
+                                <div>${videos[vc].tags.level}</div>
+                            </div>
                         </div>
                     </a>
                 `)
             }
 
             let allVideos = ''
-            for (vc; vc < 9; vc++){
+            for (vc; vc < vc_load; vc++){
                 allVideos += (/*html*/`
                     <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
                             <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
@@ -143,10 +222,17 @@ export default function Home() {
                             <div class="text__title">
                                 ${videos[vc].title}
                             </div>
+                            <div class="text__tags">
+                                <div>${videos[vc].tags.duration}</div>
+                                <div>${videos[vc].tags.level}</div>
+                            </div>
                         </div>
                     </a>
                 `)
             }
+
+            // update vc prev
+            vc_prev = vc
 
             return (/*html*/`
                 <h2>Netop tilføjet</h2>
@@ -165,20 +251,30 @@ export default function Home() {
 
             let videoHTML = ''
 
-            for (vc; vc < 3; vc++){
-                if (videoShouldRender(videos[vc])){
-                    videoHTML += (/*html*/` 
-                        <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
-                                <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
-                            <div class="video__text">
-                                <div class="text__title">
-                                    ${videos[vc].title}
+            for (vc; vc < vc_load; vc++){
+                
+                try {
+                    if (videoShouldRender(videos[vc])){
+                        videoHTML += (/*html*/` 
+                            <a class="video" onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${videos[vc].id}')">
+                                    <img src="${videos[vc].thumbnail}" alt="video thumbnail" />
+                                <div class="video__text">
+                                    <div class="text__title">
+                                        ${videos[vc].title}
+                                    </div>
+                                    <div class="text__tags">
+                                        <div>${videos[vc].tags.duration}</div>
+                                        <div>${videos[vc].tags.level}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    `)
-                }
+                            </a>
+                        `)
+                    } else { vc_load++ }
+                } catch { break }
             }
+
+            // update vc prev
+            vc_prev = vc
 
             if (videoHTML === ''){
                 return (/*html*/`
