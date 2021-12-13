@@ -13,7 +13,7 @@ export default function Settings(props) {
         <div class="view__settings">
             <div class="settings__header">
                 <h1>Indstillinger</h1>
-                <h2>${user.displayName}</h2></div>
+                <h1>${user.displayName}</h1></div>
             <div>
             <div class="settings__main">
                 <div class="main__container">
@@ -33,20 +33,22 @@ export default function Settings(props) {
                 </form>
                 </div>
                 <div class="main__container">
-                <h3>Abbonement</h3>
-                <div id="container__background">
-                    <div class="box__upper">
-                    <h1 style="color:white">${user.subscription.lastPayment} dkk</h1>
-                    <h3 style="color:white">${user.subscription.subscriptionType}</h3>
+                    <h3>Abbonement</h3>
+                    <div id="container__background">
+                        <div class="box__upper">
+                        <h1 style="color:white">${user.subscription.lastPayment} dkk</h1>
+                        <h3 style="color:white">${user.subscription.subscriptionType}</h3>
+                        </div>
+                        <div class="box__lower">
+                        <button class="unsub">Afmeld</button></a>
+                        <button class="change">Skift</button></a>
+                        </div>
                     </div>
-                    <div class="box__lower">
-                    <a href=""><button>Afmeld</button></a>
-                    <a href=""><button>Skift</button></a>
+                    <div>
+                    <button id="save__button">Gem</button>
                     </div>
                 </div>
-            </div>
         </div>
-        <button id="save__button">Gem</button>
     </div>
     `)
 }

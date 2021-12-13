@@ -405,17 +405,20 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 50px;
 }
 
 .view__settings .settings__main {
+  margin: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,15 +432,20 @@ a {
 }
 
 .view__settings .settings__main .main__container {
-  width: 100%;
-  margin: 0px 30px;
+  width: 48%;
 }
 
-.view__settings .settings__main .main__container h3 {
-  margin: 20px;
+.view__settings .settings__main .main__container > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .view__settings .settings__main #container__background {
+  margin: 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -450,8 +458,8 @@ a {
           justify-content: space-between;
   background: #455863;
   border-radius: 15px;
-  height: 100%;
   padding: 30px;
+  height: 80%;
 }
 
 .view__settings .settings__main #container__background h3 {
@@ -488,18 +496,72 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.view__settings .settings__main button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-bottom: 15px;
 }
 
 .view__settings .settings__main .box__lower {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.view__settings .settings__main .box__lower .unsub {
+  background: white;
+  color: #7491A1;
+  padding: 5px 0px;
+  width: 150px;
+  text-align: center;
+  border: 3px solid #7491A1;
+  border-radius: 10px;
+}
+
+.view__settings .settings__main .box__lower .change {
+  color: white;
+  background-color: #7491A1;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 0px;
+  width: 150px;
+}
+
+.view__settings .settings__main #save__button {
+  background: #455863;
+  border-radius: 10px;
+  padding: 10px 0px;
+  width: 150px;
+  color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+  .view__settings .settings__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .view__settings .settings__main .main__container {
+    width: 100%;
+  }
 }
 
 .view__watch {
@@ -526,7 +588,7 @@ a {
   margin-right: 30px;
 }
 
-.view__watch .watch__container .container__video video {
+.view__watch .watch__container .container__video > video {
   width: 100%;
   max-width: 1200px;
   width: 100%;
@@ -569,7 +631,7 @@ a {
   margin-top: 15px;
 }
 
-.view__watch .watch__container .container__description .description__tags div {
+.view__watch .watch__container .container__description .description__tags > div {
   background-color: #93B2C3;
   border-radius: 5px;
   font-weight: bold;
@@ -619,7 +681,7 @@ a {
   z-index: 0.5;
   border-radius: 0 0 15px 15px;
   width: 100%;
-  background: #7491A1;
+  background: #93B2C3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -652,7 +714,7 @@ a {
 .view__watch .video .text__tags > div {
   padding: 7px 14px;
   border-radius: 3px;
-  background-color: #93B2C3;
+  background-color: #7491A1;
   max-height: 80px;
 }
 
@@ -665,50 +727,34 @@ a {
           transform: scale(1.05);
 }
 
-.view__watch .videos__new {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.view__watch .similarVids {
+  margin-top: 30px;
+  background: #7491A1;
+  border-radius: 40px 40px 0px 0px;
+  padding: 25px;
 }
 
-.view__watch .videos__new .video {
-  margin-bottom: 35px;
-  width: clamp(400px, 40%, 700px);
-}
-
-.view__watch .videos__new .video:first-child {
-  margin-right: 15px;
-}
-
-.view__watch .videos__new .text__title {
-  font-size: 36px;
-}
-
-.view__watch .videos__new .text__teacher {
-  font-size: 14px;
+.view__watch .similarVids h1 {
+  color: white;
 }
 
 .view__watch .videos__all {
+  margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .view__watch .videos__all .video {
   margin-bottom: 60px;
   margin-left: .5%;
   margin-right: .5%;
-  width: clamp(400px, 28%, 550px);
+  max-width: 380px;
 }
 
 .view__watch .videos__all .text__title {

@@ -10,7 +10,7 @@
             width: 100%;
             margin-right: 30px;
 
-            video{width: 100%;
+            >video{width: 100%;
                 max-width: 1200px;
                 width:100%;
                 max-height:700px;
@@ -37,12 +37,12 @@
                flex-direction: row;
                flex-wrap: wrap;
                margin-top: 15px;
-               div{
+               >div{
                 background-color: #93B2C3;
                 border-radius: 5px;
                 font-weight: bold;
                 padding: 5px;
-               margin: 5px;
+                margin: 5px;
                }
            }
            .playlist__buttons{
@@ -60,7 +60,6 @@
         color:white;
         font-weight: bold;
         overflow:hidden;
-            
         img {
             border-radius: 15px 15px 0 0;
             width:100%;
@@ -77,7 +76,7 @@
             z-index: 0.5;
             border-radius: 0 0 15px 15px;
             width: 100%;
-            background: #7491A1;
+            background: #93B2C3;
             display:flex;
             flex-wrap:wrap;
             justify-content: space-between;
@@ -97,7 +96,7 @@
             > div {
                 padding:7px 14px;
                 border-radius: 3px;
-                background-color: #93B2C3;
+                background-color: #7491A1;
                 max-height: 80px;
 
                 &:first-child {
@@ -114,41 +113,24 @@
         }
 
     }
-
-    .videos__new {
-        display:flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        
-
-        .video {
-            margin-bottom:35px;
-            width: clamp(400px, 40%, 700px);
-            &:first-child{
-                margin-right:15px;
-            }
-        }
-        
-
-        .text__title {
-            font-size:36px;
-        }
-        .text__teacher {
-            font-size:14px;
-        }
-
+    .similarVids{
+        margin-top: 30px;
+        background: #7491A1;
+        border-radius: 40px 40px 0px 0px;
+        padding: 25px;
+        h1{color: white;}
     }
-
     .videos__all {
+        margin-top: 15px;
         display:flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         
         .video {
             margin-bottom: 60px;
             margin-left: .5%;
             margin-right: .5%;
-            width: clamp(400px, 28%, 550px);
+            max-width: 380px;
         }
         
         

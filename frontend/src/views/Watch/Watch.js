@@ -112,37 +112,38 @@ export default function Watch(props) {
         <div class="flex-wrapper">
             ${Aside()}
             <div class="view__watch">
-            <div class="watch__container">
-                <div class="container__video">
-                    <video id="video" poster="${_vid[0].thumbnail}" controls>
-                        <source src="${_vid[0].url}" type="video/mp4"/>
-                    </video>
-                </div>
-                <div class="container__description">
-                    <div class="description__main">
-                        <h1>${_vid[0].title}</h1>
-                        <span>${_vid[0].description}</span>
-                        <div class="description__tags">
-                            <div>${_vid[0].tags.duration}</div>
-                            <div>${_vid[0].tags.level}</div>
-                            ${returnTags()}
+                <div class="watch__container">
+                    <div class="container__video">
+                        <video id="video" poster="${_vid[0].thumbnail}" controls>
+                            <source src="${_vid[0].url}" type="video/mp4"/>
+                        </video>
+                    </div>
+                    <div class="container__description">
+                        <div class="description__main">
+                            <h1>${_vid[0].title}</h1>
+                            <span>${_vid[0].description}</span>
+                            <div class="description__tags">
+                                <div>${_vid[0].tags.duration}</div>
+                                <div>${_vid[0].tags.level}</div>
+                                ${returnTags()}
+                            </div>
+                        </div>
+                        <div class="playlist__buttons">
+                            <img 
+                                onclick="jk.Watch.favourite('${_vid[0].id}')" 
+                                src="/media/icons/Addtofavorites.svg" 
+                                alt="addfavorite icon"
+                                class="${checkIfLiked(_vid[0].id)}}"
+                            />
+                            <img src="/media/icons/Addtoplaylist.svg" alt="addplaylist icon"/>
                         </div>
                     </div>
-                    <div class="playlist__buttons">
-                        <img 
-                            onclick="jk.Watch.favourite('${_vid[0].id}')" 
-                            src="/media/icons/Addtofavorites.svg" 
-                            alt="addfavorite icon"
-                            class="${checkIfLiked(_vid[0].id)}}"
-                        />
-                        <img src="/media/icons/Addtoplaylist.svg" alt="addplaylist icon"/>
+                </div>
+                <div class="similarVids">
+                    <h1>Relateret videoer</h1>
+                    <div class="videos__all">
+                        ${appendSimilarVideos()}
                     </div>
-                </div>
-
-                </div>
-                <h1>Relateret videoer</h1>
-                <div class="videos__all">
-                    ${appendSimilarVideos()}
                 </div>
             </div>
             
