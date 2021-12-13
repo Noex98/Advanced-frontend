@@ -2,13 +2,9 @@ import { Redirect, useState, useEffect } from '/jk'
 import Header from '../../components/Header/Header.js'
 import Aside from '../../components/Aside/Aside.js'
 import Spinner from '../../components/Spinner/Spinner.js'
+import modCollections from '../../functions/modCollections.js'
 
-import {
-	doc,
-    getDoc,
-    setDoc,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
+
 
 export default function Collection(props){
 
@@ -80,7 +76,11 @@ export default function Collection(props){
                 return x
             })
 
-            sendNewData(updatedCollections)
+            modCollections(updatedCollections, (() => setUser(prev => {
+                let newState = prev;
+                newState.collections = updatedCollections
+                return newState;
+            })))
         }
         
         jk.Collection.move = (index, direction) => {
@@ -105,24 +105,15 @@ export default function Collection(props){
                 return x
             })
 
-            sendNewData(updatedCollections)
+            modCollections(updatedCollections, (() => setUser(prev => {
+                let newState = prev;
+                newState.collections = updatedCollections
+                return newState;
+            })))
         }
         
 
     }, [])
-
-    function sendNewData(newData){
-        updateDoc(doc(jk.global.db, 'users', user.uid), {
-            collections: newData
-        })
-            .then(() => {
-                setUser(prev => {
-                    let newState = prev;
-                    newState.collections = newData
-                    return newState;
-                })
-            })
-    }
 
 
     function returnTags(video){

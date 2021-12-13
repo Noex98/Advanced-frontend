@@ -40,7 +40,7 @@ export function InitRouter(routes) {
             const navLinks = root.querySelectorAll(".jk-link")
             for (const link of navLinks) {
                 link.onclick = (e) => {
-                    const path = link.href
+                    const path = link.getAttribute('href')
                     navigateTo(path)
                     e.preventDefault()
                 };
