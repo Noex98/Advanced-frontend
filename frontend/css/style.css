@@ -638,9 +638,59 @@ a {
           align-items: center;
 }
 
+.view__watch .watch__container .container__description .playlist__buttons > div {
+  position: relative;
+  cursor: pointer;
+}
+
 .view__watch .watch__container .container__description .playlist__buttons img {
   width: 3vw;
   margin: 0px 5px;
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background: #93B2C3;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 11px;
+  white-space: nowrap;
+  -webkit-transition: inherit;
+  transition: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent > div img {
+  margin-right: 11px;
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent > div:hover {
+  background: #9cbbcc;
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent > div:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+
+.view__watch .watch__container .container__description .playlist__buttons .addToListContent--active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .view__watch .watch__container .container__description .playlist__buttons .liked {
@@ -717,9 +767,9 @@ a {
 }
 
 .view__watch .similarVids {
-  margin-top: 30px;
+  margin: 30px 0;
   background: #7491A1;
-  border-radius: 40px 40px 0px 0px;
+  border-radius: 40px;
   padding: 25px;
 }
 

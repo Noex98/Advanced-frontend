@@ -51,17 +51,58 @@
                 justify-content: flex-end;
                 align-items: center;
 
+                >div {
+                    position:relative;
+                    cursor: pointer;
+                }
+
                 img {
                     width: 3vw;
                     margin: 0px 5px;
                 }
                 
+                .addToListContent {
+                    opacity: 0;
+                    pointer-events: none;
+                    transition:150ms;
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    transform:translateX(-100%);
+                    background: #93B2C3;
+                    color:white;
+                    border:1px solid rgba(255, 255, 255, 0.2);
+
+                    >div {
+                        display:flex;
+                        padding:11px;
+                        white-space: nowrap;
+                        transition: inherit;
+                        align-items: center;
+
+                        img {
+                            margin-right:11px;
+                        }
+
+                        &:hover {
+                            background: #9cbbcc;
+                        }
+                    }
+                    >div:not(:last-child){
+                        border-bottom: 1px solid white;
+                    }
+                }
+
+                .addToListContent--active {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+
                 .liked {
                     // https://codepen.io/sosuke/pen/Pjoqqp
                     // Color used: #ff3636
                     filter: invert(41%) sepia(88%) saturate(5568%) hue-rotate(344deg) brightness(104%) contrast(100%);
                 }
-                    
             }
         }
     }
@@ -122,9 +163,9 @@
 
     }
     .similarVids{
-        margin-top: 30px;
+        margin: 30px 0;
         background: #7491A1;
-        border-radius: 40px 40px 0px 0px;
+        border-radius: 40px;
         padding: 25px;
         h1{color: white;}
     }
