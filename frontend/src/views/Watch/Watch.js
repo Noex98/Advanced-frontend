@@ -8,7 +8,6 @@ export default function Watch(props) {
     // Global state
     const [videos, setVideos] = useState([jk.global, 'videos'], undefined)
     const [user, setUser] = useState([jk.global, 'user'], undefined)
-    console.log(user)
     // id for video
     let video_id
 
@@ -36,10 +35,32 @@ export default function Watch(props) {
         jk.Watch = {}
     
         jk.Watch.favourite = (id) => {
-            console.log(user.collections[0].videos)
-            console.log(id)
-            if (user.collections[0].videos.includes(id)){
-                console.log('yes')
+
+            // Logged in
+            if (user){ 
+                let newData = user.collections
+                
+                // Delete from fav
+                if (user.collections[0].videos.includes(id)){
+                    let target = newData[0].videos.indexOf(id)
+                    if (target !== -1) {
+                        newData[0].videos.splice(target, 1);
+                    }
+                } else { // Add to fav
+                    newData[0].videos.unshift(id)
+                }
+
+                modCollections(newData, (() => {
+                    setUser(prev => {
+                        let newState = prev;
+                        newState.collections = newData
+                        return newState;
+                    }, {reRender: false})
+                    document.getElementById('likeBtn').classList.toggle('liked')
+                }))
+
+            } else { // Not logged in
+                alert('Sign up to use this feature')
             }
         }
 
@@ -99,7 +120,7 @@ export default function Watch(props) {
         return output
     }
 
-    function checkIfLiked(id){
+    function checkIfLiked(){
         try {
             if (user.collections[0].videos.includes(_vid[0].id)){
                 return 'liked'
@@ -133,7 +154,8 @@ export default function Watch(props) {
                                 onclick="jk.Watch.favourite('${_vid[0].id}')" 
                                 src="/media/icons/Addtofavorites.svg" 
                                 alt="addfavorite icon"
-                                class="${checkIfLiked(_vid[0].id)}}"
+                                class="${checkIfLiked()}"
+                                id="likeBtn"
                             />
                             <img src="/media/icons/Addtoplaylist.svg" alt="addplaylist icon"/>
                         </div>

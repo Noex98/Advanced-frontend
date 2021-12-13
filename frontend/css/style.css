@@ -656,6 +656,10 @@ a {
   margin: 0px 5px;
 }
 
+.view__watch .watch__container .container__description .playlist__buttons .liked {
+  background-color: red;
+}
+
 .view__watch .video {
   border-radius: 15px;
   color: white;

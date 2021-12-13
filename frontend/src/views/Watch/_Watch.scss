@@ -30,28 +30,38 @@
             .description__main{
                h1{margin-bottom: 15px;}
             }
-
         
            .description__tags{
                display: flex;
                flex-direction: row;
                flex-wrap: wrap;
                margin-top: 15px;
-               >div{
-                background-color: #93B2C3;
-                border-radius: 5px;
-                font-weight: bold;
-                padding: 5px;
-                margin: 5px;
-               }
+
+               >div {
+                    background-color: #93B2C3;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    padding: 5px;
+                    margin: 5px;
+                }
            }
+
            .playlist__buttons{
-               img{width: 3vw;
-                   margin: 0px 5px;}
-               display: flex;
-               justify-content: flex-end;
-               align-items: center;
-           }
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                img {
+                    width: 3vw;
+                    margin: 0px 5px;
+                }
+                
+                .liked {
+                    // Skal ændres
+                    background-color: red;
+                }
+                    
+            }
         }
     }
  
