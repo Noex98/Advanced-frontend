@@ -8,7 +8,6 @@ header{
     margin-bottom: 24px;
     z-index:2;
     position:relative;
-
     .header__logo {
         display:flex;
         align-items: center;
@@ -48,13 +47,7 @@ header{
             margin-right: 15px;
         }
     }
-
-    @media only screen and (max-width: 768) {
-        .header__logo div {
-            display:none;
-        }
-        .profile h3 {
-            display: none;
-        }
+    @media only screen and (max-width: 768px) {
+        
     }
 }

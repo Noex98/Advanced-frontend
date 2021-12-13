@@ -787,15 +787,10 @@ a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .view__watch .videos__all .video {
-  margin-bottom: 60px;
-  margin-left: .5%;
-  margin-right: .5%;
+  margin: 3%;
   max-width: 380px;
 }
 
