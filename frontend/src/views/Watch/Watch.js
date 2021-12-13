@@ -186,14 +186,14 @@ export default function Watch(props) {
                         <div class="playlist__buttons">
                             <div>
                                 <img 
-                                    onclick="jk.Watch.favourite('${_vid[0].id}')" 
+                                    onclick="jk.Watch.favourite('${_vid.id}')" 
                                     src="/media/icons/Addtofavorites.svg" 
                                     alt="addfavorite icon"
                                     class="${checkIfLiked()}"
                                     id="likeBtn"
                                 />
                             </div>
-                            <div onclick="jk.Watch.addToList('${_vid[0].id}')">
+                            <div onclick="jk.Watch.addToList('${_vid.id}')">
                                 <img
                                     src="/media/icons/Addtoplaylist.svg" 
                                     alt="addplaylist icon"
