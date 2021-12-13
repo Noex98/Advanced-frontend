@@ -685,7 +685,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 16px 24px;
+  padding: 12px;
   padding-bottom: 0;
 }
 

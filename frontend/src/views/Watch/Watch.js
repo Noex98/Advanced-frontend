@@ -94,7 +94,7 @@ export default function Watch(props) {
         // Remove duplicates
         let uniq = [...new Set(_similarVideos)];
 
-        // Remove the opened video
+        // Filter to remove opened video
         let filteredUniq = uniq.filter(x => x.id !== video_id)
 
         // Loop through unique videos and append them to HTML

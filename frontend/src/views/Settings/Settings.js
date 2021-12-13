@@ -33,7 +33,7 @@ export default function Settings(props) {
                 </form>
                 </div>
                 <div class="main__container">
-                    <h3>Abbonement</h3>
+                    <h3>Abonnement</h3>
                     <div id="container__background">
                         <div class="box__upper">
                         <h1 style="color:white">${user.subscription.lastPayment} dkk</h1>

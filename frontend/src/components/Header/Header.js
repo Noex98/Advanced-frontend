@@ -40,7 +40,7 @@ export default function Header(){
                     <div class="dropdown-content" id="dropdown-header">
 
                         <a class="jk-link" href="/settings" style="display:flex; flex-direction: collumn; align-items: center;">
-                            <img src="/media/icons/settings-white.svg" class="dropdown-icon"/>
+                            <img src="/media/icons/Settings-white.svg" class="dropdown-icon"/>
                             <div>Indstillinger</div>
                         </a>
 
