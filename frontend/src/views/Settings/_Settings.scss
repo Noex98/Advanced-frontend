@@ -1,27 +1,33 @@
 .view__settings{
-    .settings__header{
+        .settings__header{
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        margin: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 50px;
         }
     .settings__main{
+        margin: 50px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
         .main__container{
-            width: 100%;
-            margin: 0px 30px;
-            h3{margin: 20px;}
+            width: 48%;
+            >div{
+                display: flex;
+                justify-content: flex-end;
+            }
         }
         #container__background{
+        margin: 15px 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         background: #455863;
         border-radius: 15px;
-        height: 100%;
         padding: 30px;
+        height: 80%;
         h3{margin: 0;}
         }
         form{
@@ -39,13 +45,56 @@
             #form__card{
                 display: flex;
                 flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: space-between;
             }
         }
+        button{
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            margin-bottom: 15px; }
         .box__lower{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
+            .unsub{
+                background: white;
+                color: #7491A1;
+                padding: 5px 0px;
+                width: 150px;
+                text-align: center;
+                border: 3px solid #7491A1;
+                border-radius: 10px;
+            }
+            .change{
+                color: white;
+                background-color:#7491A1;
+                border-radius: 10px;
+                text-align: center;
+                padding: 5px 0px;
+                width: 150px;
+            }
         }
+        #save__button{
+            background: #455863;
+            border-radius: 10px;
+            padding: 10px 0px;
+            width: 150px;
+            color: white;
+        }
+       
     }
-
+    @media only screen and (max-width: 1000px) {
+        .settings__main{
+            flex-direction: column;
+            .main__container{width: 100%;}
+        }
+            
+    }
+    
 }

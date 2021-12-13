@@ -129,9 +129,11 @@ export default function Watch(props) {
             ${Aside()}
             <div class="view__watch">
                 ${returnVideo()}
+                <div class="similarVids">
                 <h1>Relateret videoer</h1>
                 <div class="videos__all">
                     ${appendSimilarVideos()}
+                </div>
                 </div>
             </div>
             
