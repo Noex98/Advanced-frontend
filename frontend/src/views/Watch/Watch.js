@@ -28,7 +28,7 @@ export default function Watch(props) {
     let _vid = videos.filter(x => x.id === video_id)
 
     // Filter for videos with the same category 
-    let _tags = _vid[0].tags.categories;
+    let _tags = _vid[0].tags.categories
 
     useEffect([Watch, 'init'], () => {
 

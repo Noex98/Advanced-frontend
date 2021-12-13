@@ -118,7 +118,7 @@ a {
   border-radius: 15px;
   text-align: center;
   font-size: 28px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .popup > *:not(:last-child) {
@@ -167,7 +167,7 @@ a {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 1;
+  z-index: 9;
   -webkit-transition: 200ms;
   transition: 200ms;
 }
@@ -300,24 +300,11 @@ a {
   border-radius: 0 0 15px 15px;
   width: 100%;
   background: #7491A1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 16px 24px;
-  padding-bottom: 0;
 }
 
-.view__home .video .video__text > div {
+.view__home .video .video__text > div:first-child {
   margin-bottom: 16px;
-  margin-right: 12px;
 }
 
 .view__home .video .text__tags {
