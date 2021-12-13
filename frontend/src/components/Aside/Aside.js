@@ -111,7 +111,7 @@ export default function Aside(){
                 </div>
                 <div class="aside__collections">
                     ${returnCollections()}
-                    <div class="collections__addBtn" onclick="jk.Aside.addCollection()">+ Ny playlist</div>
+                    <div class="collections__addBtn" onclick="jk.Aside.addCollection()">+ Ny playliste</div>
                 </div>
             </div>
             
