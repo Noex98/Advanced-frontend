@@ -56,7 +56,7 @@ export default function Aside(){
             popup.innerHTML = (/*html*/`
                 <div onclick="jk.Aside.closePopup()" class="popup__close"></div>
                 <div>Opret playliste</div>
-                <input id="asidePlaylistInput" type="text" placeholder="Titel" />
+                <input id="asidePlaylistInput" oninput="this.value = this.value.replace(/[^A-Za-z0-9]/g, '')" type="text" placeholder="Titel" />
                 <button onclick="jk.Aside.saveCollection()" >Gem</button>
             `)
 
