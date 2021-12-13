@@ -739,21 +739,22 @@ a {
 }
 
 .view__watch .videos__all {
+  margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .view__watch .videos__all .video {
   margin-bottom: 60px;
   margin-left: .5%;
   margin-right: .5%;
-  width: clamp(400px, 28%, 550px);
+  max-width: 380px;
 }
 
 .view__watch .videos__all .text__title {

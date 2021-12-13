@@ -60,7 +60,6 @@
         color:white;
         font-weight: bold;
         overflow:hidden;
-            
         img {
             border-radius: 15px 15px 0 0;
             width:100%;
@@ -122,15 +121,16 @@
         h1{color: white;}
     }
     .videos__all {
+        margin-top: 15px;
         display:flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         
         .video {
             margin-bottom: 60px;
             margin-left: .5%;
             margin-right: .5%;
-            width: clamp(400px, 28%, 550px);
+            max-width: 380px;
         }
         
         
