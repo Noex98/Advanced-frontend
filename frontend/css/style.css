@@ -657,7 +657,8 @@ a {
 }
 
 .view__watch .watch__container .container__description .playlist__buttons .liked {
-  background-color: red;
+  -webkit-filter: invert(41%) sepia(88%) saturate(5568%) hue-rotate(344deg) brightness(104%) contrast(100%);
+          filter: invert(41%) sepia(88%) saturate(5568%) hue-rotate(344deg) brightness(104%) contrast(100%);
 }
 
 .view__watch .video {

@@ -57,8 +57,9 @@
                 }
                 
                 .liked {
-                    // Skal ændres
-                    background-color: red;
+                    // https://codepen.io/sosuke/pen/Pjoqqp
+                    // Color used: #ff3636
+                    filter: invert(41%) sepia(88%) saturate(5568%) hue-rotate(344deg) brightness(104%) contrast(100%);
                 }
                     
             }
