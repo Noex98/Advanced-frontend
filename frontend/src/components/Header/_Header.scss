@@ -48,4 +48,13 @@ header{
             margin-right: 15px;
         }
     }
+
+    @media only screen and (max-width: 768) {
+        .header__logo div {
+            display:none;
+        }
+        .profile h3 {
+            display: none;
+        }
+    }
 }

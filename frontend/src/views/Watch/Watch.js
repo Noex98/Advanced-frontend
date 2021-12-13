@@ -64,6 +64,10 @@ export default function Watch(props) {
             }
         }
 
+        jk.Watch.addToList = (id) => {
+            document.querySelector('.addToListContent').classList.toggle('addToListContent--active')
+        }
+
     }, [ user ])
 
     //Return tags to html 
@@ -120,6 +124,23 @@ export default function Watch(props) {
         return output
     }
 
+    function returnAddToListOptions(){
+        if (user){
+            let output = ''
+            for (let i = 1; i < user.collections.length; i ++){
+                output += (/*html*/`
+                    <div>
+                        <img src="../media/icons/Rectangle.svg" alt="" />
+                        <div>Tilføj til ${user.collections[i].name}</div>
+                    </div>
+                `)
+            }
+            return output
+        } else {
+            return ''
+        }
+    }
+
     function checkIfLiked(){
         try {
             if (user.collections[0].videos.includes(_vid[0].id)){
@@ -150,14 +171,29 @@ export default function Watch(props) {
                             </div>
                         </div>
                         <div class="playlist__buttons">
-                            <img 
-                                onclick="jk.Watch.favourite('${_vid[0].id}')" 
-                                src="/media/icons/Addtofavorites.svg" 
-                                alt="addfavorite icon"
-                                class="${checkIfLiked()}"
-                                id="likeBtn"
-                            />
-                            <img src="/media/icons/Addtoplaylist.svg" alt="addplaylist icon"/>
+                            <div>
+                                <img 
+                                    onclick="jk.Watch.favourite('${_vid[0].id}')" 
+                                    src="/media/icons/Addtofavorites.svg" 
+                                    alt="addfavorite icon"
+                                    class="${checkIfLiked()}"
+                                    id="likeBtn"
+                                />
+                            </div>
+                            <div onclick="jk.Watch.addToList('${_vid[0].id}')">
+                                <img
+                                    src="/media/icons/Addtoplaylist.svg" 
+                                    alt="addplaylist icon"
+                                    id="addToListBtn"
+                                />
+                                <div class="addToListContent">
+                                    <div>
+                                        <img src="../media/icons/plussign.svg" alt="" />
+                                        <div>Tilføj til ny playliste</div>
+                                    </div>
+                                    ${returnAddToListOptions()}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

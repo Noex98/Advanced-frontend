@@ -13,8 +13,8 @@ export default function Login() {
         jk.global.authUi.start('#firebaseui-auth-container', {
             signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID
+                // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                // firebase.auth.FacebookAuthProvider.PROVIDER_ID
             ],
             callbacks:{
                 // Sign in succes
