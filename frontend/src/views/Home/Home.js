@@ -3,10 +3,6 @@ import Header from "../../components/Header/Header.js"
 import Aside from "../../components/Aside/Aside.js"
 import Spinner from "../../components/Spinner/Spinner.js"
 
-// Todo 
-// Få ændret på vc counter, når der er oploadet mere på db
-// Lav en load more function
-
 export default function Home() {
 
     const emptySearchState = {
@@ -96,11 +92,10 @@ export default function Home() {
             <h2 class="endMessage">Ingen yderligere resultater</h2>
         `)
 
+        // If endmessage is already shown, dont load more
+        if (document.querySelector('.videos__all .endMessage')) return
         
-    
         if(totalHeight + buffer >= scrollHeight){
-
-            if (document.querySelector('.videos__all .endMessage')) return
 
             let output = ''
 
@@ -122,8 +117,8 @@ export default function Home() {
                                 </div>
                             </a>
                         `)
-                    } else { vc_load++ }
-                } catch { break }
+                    } else { vc_load++ } // Video should not render, let the loop go one further
+                } catch { break } // Looped past videos.length
             }
 
             // update vc prev
@@ -166,7 +161,7 @@ export default function Home() {
     // Returns true if video fullfills search requirements
     function videoShouldRender(video){
 
-        // Test if 
+        // Test if video is filtered out
         for (const filter of filters) {
             if ( searchOptions.filter[filter.displayName] && !video.tags[filter.id].includes(searchOptions.filter[filter.displayName]) ){
                 return false
@@ -244,8 +239,7 @@ export default function Home() {
                 </div>
             `)
             
-        // Search active
-        } else {
+        } else { // Search active
 
             let videoHTML = ''
 
@@ -267,8 +261,8 @@ export default function Home() {
                                 </div>
                             </a>
                         `)
-                    } else { vc_load++ }
-                } catch { break }
+                    } else { vc_load++ } // Video should not render, let the loop go one further
+                } catch { break } // Looped past videos.length
             }
 
             // update vc prev

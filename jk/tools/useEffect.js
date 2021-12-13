@@ -20,7 +20,6 @@ export function useEffect(storage, func, dependencies){
     }
 }
 
-
 // Export handlers for router
 
 export function handleEffects(){
