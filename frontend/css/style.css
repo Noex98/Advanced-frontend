@@ -1153,13 +1153,4 @@ header .profile #profile-img {
 header .profile .dropdown-icon {
   margin-right: 15px;
 }
-
-@media only screen and (max-width: 768) {
-  header .header__logo div {
-    display: none;
-  }
-  header .profile h3 {
-    display: none;
-  }
-}
 /*# sourceMappingURL=style.css.map */
