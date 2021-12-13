@@ -25,10 +25,9 @@ export default function Watch(props) {
     }
 
     // Object of clicked video db values
-    let _vid = videos.filter(x => x.id === video_id)
+    let _vid = videos.find(x => x.id === video_id)
 
-    // Filter for videos with the same category 
-    let _tags = _vid[0].tags.categories
+    let _tags = _vid.tags.categories
 
     useEffect([Watch, 'init'], () => {
 
@@ -80,12 +79,12 @@ export default function Watch(props) {
     function appendSimilarVideos() {
         let _similarVideos = []
         let output = ""
-        // Loop through videos and categories of those videos
+        // Loop through videos and different tags of those videos
         for (let video of videos) {
-            let tags = video.tags.categories
-            for (const tag of tags) {
+            let categories = video.tags.categories
+            for (const x of categories) {
                 // Check if tags are in common
-                const found = _tags.includes(tag);
+                const found = _tags.includes(x);
                 // If tags are in common push to array
                 if(found == true){
                    _similarVideos.push(video)
@@ -100,6 +99,16 @@ export default function Watch(props) {
 
         // Loop through unique videos and append them to HTML
         for (const video of filteredUniq) {
+            function returnCategories() {
+                let categoriesOutput= ""
+                let categories = video.tags.categories
+                for (const category of categories) {
+                    categoriesOutput +=(/*html*/`
+                    <div>${category}</div>
+                    `)
+                }
+                return categoriesOutput
+            }
             output += (/*html*/`
                 <a onclick="event.preventDefault(); window.navigateTo('/watch?video_id=${video.id}')">
                     <div class="video">
@@ -112,6 +121,10 @@ export default function Watch(props) {
                             <div>${video.tags.duration}</div>
                             <div>${video.tags.level}</div>
                             </div>
+                            <div class="text__tags">
+                            ${returnCategories()}
+                            </div>
+                        
                         </div>
                     </div>
                 </a>
@@ -135,23 +148,23 @@ export default function Watch(props) {
             <div class="view__watch">
                 <div class="watch__container">
                     <div class="container__video">
-                        <video id="video" poster="${_vid[0].thumbnail}" controls>
-                            <source src="${_vid[0].url}" type="video/mp4"/>
+                        <video id="video" poster="${_vid.thumbnail}" controls>
+                            <source src="${_vid.url}" type="video/mp4"/>
                         </video>
                     </div>
                     <div class="container__description">
                         <div class="description__main">
-                            <h1>${_vid[0].title}</h1>
-                            <span>${_vid[0].description}</span>
+                            <h1>${_vid.title}</h1>
+                            <span>${_vid.description}</span>
                             <div class="description__tags">
-                                <div>${_vid[0].tags.duration}</div>
-                                <div>${_vid[0].tags.level}</div>
+                                <div>${_vid.tags.duration}</div>
+                                <div>${_vid.tags.level}</div> 
                                 ${returnTags()}
                             </div>
                         </div>
                         <div class="playlist__buttons">
                             <img 
-                                onclick="jk.Watch.favourite('${_vid[0].id}')" 
+                                onclick="jk.Watch.favourite('${_vid.id}')" 
                                 src="/media/icons/Addtofavorites.svg" 
                                 alt="addfavorite icon"
                                 class="${checkIfLiked()}"
@@ -162,7 +175,7 @@ export default function Watch(props) {
                     </div>
                 </div>
                 <div class="similarVids">
-                    <h1>Relateret videoer</h1>
+                    <h1>Relaterede videoer</h1>
                     <div class="videos__all">
                         ${appendSimilarVideos()}
                     </div>

@@ -82,16 +82,12 @@ export default function initFirebase(){
             // Get extra user data from firestore
             getDoc(doc(jk.global.db, 'users', authData.uid))
                 .then((firestoreData) => {
-
-                    // Let unmodified data from user accesible globaly
-                    jk.global.userData = firestoreData.data()
-
                     // Set user state
                     setUser({
                         displayName: authData.displayName,
                         email: authData.email,
                         phoneNumber: authData.phoneNumber,
-                        uid: authData.uid,
+                        uid: authData.uid,  
                         ... firestoreData.data(),
                     })
                 })
