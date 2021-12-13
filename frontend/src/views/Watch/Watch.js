@@ -84,7 +84,7 @@ export default function Watch(props) {
         let _similarVideos = []
         let output = ""
         // Loop through videos and categories of those videos
-        for (const video of videos) {
+        for (let video of videos) {
             let tags = video.tags.categories
             for (const tag of tags) {
                 // Check if tags are in common

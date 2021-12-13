@@ -8,7 +8,6 @@ header{
     margin-bottom: 24px;
     z-index:2;
     position:relative;
-
     .header__logo {
         display:flex;
         align-items: center;
@@ -47,5 +46,8 @@ header{
         .dropdown-icon{
             margin-right: 15px;
         }
+    }
+    @media only screen and (max-width: 768px) {
+        
     }
 }
