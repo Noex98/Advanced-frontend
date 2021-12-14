@@ -144,7 +144,7 @@ export default function Collection(props){
         // Playlist is empty
         if (collection.videos.length === 0){
             return (/*html*/`
-                <h2>No videos in this playlist</h2>
+                <h2>Du har ingen videoer i ${collection.name}</h2>
             `)
         }
 
